@@ -78,52 +78,57 @@ Example:
 Then visit 👉 http://localhost:8000/index.html
 
 ---
-
 ## 📝 Usage & Navigation
-🎓 Student Portal (index.html)
+
+### 🎓 Student Portal (`index.html`)
 
 Students can:
 
-Choose Semester, Subject, Category, and Year
-
-Click “Search Papers” to view filtered results
-The data dynamically loads from papers.json.
-
-### 🔐 Admin Dashboard (admin.html)
-
-Open Login Page → login.html
-
-Use Demo Credentials (for testing only):
-
-Field	Value
-Username	admin
-Password	12345
-
-After login, you’ll be redirected to admin.html
-
-Use the Upload Form to simulate adding new question papers.
-
-### ⚠️ Note: This version uses simulated authentication. Replace with a backend system for real-world use.
+- Choose **Semester**, **Subject**, **Category**, and **Year**  
+- Click **“Search Papers”** to view filtered results  
+- The data is dynamically loaded from **`papers.json`**
 
 ---
+
+### 🔐 Admin Dashboard (`admin.html`)
+
+1. Open the **Login Page** → `login.html`  
+2. Use the **Demo Credentials** (for testing only):
+
+| Field | Value |
+| :--- | :--- |
+| **Username** | `admin` |
+| **Password** | `12345` |
+
+3. After successful login, you’ll be redirected to **`admin.html`**  
+4. Use the **Upload Form** to simulate adding new question papers.
+
+> ⚠️ **Note:** This version uses *simulated authentication*.  
+> For real-world use, integrate a **secure backend system** (e.g., Firebase, Node.js, or PHP).
+
+---
+
 ## 📂 Project Structure
+
+
 CampusBytes/
 │
-├── index.html        # 🎓 Student Interface
-├── login.html        # 🔐 Admin Login Page
-├── admin.html        # ⚙️ Admin Dashboard
+├── index.html # 🎓 Student Interface
+├── login.html # 🔐 Admin Login Page
+├── admin.html # ⚙️ Admin Dashboard
 │
-├── login.js          # Handles admin login validation
-├── admin.js          # Handles paper upload simulation
+├── login.js # Handles admin login validation
+├── admin.js # Handles paper upload simulation
 │
-├── style.css         # Main site styling
-├── login.css         # Admin login styles
-├── admin.css         # Admin dashboard styles
+├── style.css # Main site styling
+├── login.css # Admin login styles
+├── admin.css # Admin dashboard styles
 │
-├── papers.json       # 📘 JSON data source (question paper metadata)
-└── README.md         # 📄 Project documentation
+├── papers.json # 📘 JSON data source (question paper metadata)
+└── README.md # 📄 Project documentation
 
----
+--
+
 ## 👨‍💻 Author
 
 Developed by: code-with-akki010
