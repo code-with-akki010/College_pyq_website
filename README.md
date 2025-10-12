@@ -92,7 +92,7 @@ Students can:
 
 ## 📂 Project Structure
 
-📁 **CampusBytes/**  
+📁 **College_pyq_website/**  
 │  
 ├── 🧩 **index.html** — 🎓 Student Interface  
 ├── 🔑 **login.html** — Admin Login Page  
