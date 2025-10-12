@@ -60,24 +60,6 @@ Follow these steps to set up the project locally 👇
 
 ---
 
-### 💻 Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/code-with-akki010/college_pyq_website.git
-
-2. **Navigate to the project folder**
-   ```bash
-   cd college_pyq_website
-3. **Run the project**
-  - Option 1: Open index.html directly in your browser
-  - Option 2: Serve the folder locally
-Example:
-    ```bash
-    python -m http.server
-Then visit 👉 http://localhost:8000/index.html
-
----
 ## 📝 Usage & Navigation
 
 ### 🎓 Student Portal (`index.html`)
