@@ -116,7 +116,7 @@ Students can:
 > 🚀 **CampusBytes** is proudly hosted and served directly from **GitHub Pages**,  
 > making it accessible anytime, anywhere — without any external hosting services.
 
-<p align="center">
+<p align="left">
   <a href="https://code-with-akki010.github.io/College_pyq_website/" target="_blank">
     🔗 <strong>Visit the Live Demo →</strong>  
   </a>
