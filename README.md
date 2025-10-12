@@ -118,6 +118,7 @@ Students can:
 │  
 ├── 🧠 **login.js** — Handles admin login validation  
 ├── 🚀 **admin.js** — Handles paper upload simulation  
+├── ⚡ **script.js** — Controls dynamic filtering and interactivity  
 │  
 ├── 🎨 **style.css** — Main site styling  
 ├── 🖋️ **login.css** — Admin login styles  
