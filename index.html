@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusBytes - Previous Year Question Papers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!--  Navbar -->
+  <nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-graduation-cap"></i> CampusBytes</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!--  Hero Section -->
+  <header class="hero">
+    <div class="hero-overlay">
+      <h1>Welcome to CampusBytes</h1>
+      <p class="subtitle">Your Gateway to University Previous Year Questions</p>
+      <p class="description">
+        Access a curated collection of PYQs, ace your exams, and stay ahead in your academic journey.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="filters">
+      <label for="semester">Select Semester:</label>
+      <select id="semester"></select>
+
+      <label for="subject">Select Paper:</label>
+      <select id="subject"></select>
+
+      <label for="category">Select Category:</label>
+      <select id="category"></select>
+
+      <label for="year">Select Year:</label>
+      <select id="year"></select>
+
+      <button onclick="loadPapers()">Search Papers</button>
+    </section>
+
+    <section id="papers-list">
+      <h2>Available Papers</h2>
+      <ul id="papers"></ul>
+    </section>
+
+    <!--  Contact Section -->
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <p>Email: akshaybasak010@gmail.com</p>
+      <p>Email: akshaybasak523@gmail.com</p>
+      <p>Phone: +91-8444985755</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p><i class="fa-solid fa-graduation-cap"></i> Empowering Students with Past Papers</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+      <p>© 2025 <span class="brand">CampusBytes</span> | Built with <i class="fa-solid fa-heart"></i> for Learners | All
+        Rights Reserved</p>
+    </div>
+  </footer>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
