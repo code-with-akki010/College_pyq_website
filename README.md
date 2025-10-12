@@ -110,24 +110,23 @@ Students can:
 
 ## 📂 Project Structure
 
+📁 **CampusBytes/**  
+│  
+├── 🧩 **index.html** — 🎓 Student Interface  
+├── 🔑 **login.html** — Admin Login Page  
+├── ⚙️ **admin.html** — Admin Dashboard  
+│  
+├── 🧠 **login.js** — Handles admin login validation  
+├── 🚀 **admin.js** — Handles paper upload simulation  
+│  
+├── 🎨 **style.css** — Main site styling  
+├── 🖋️ **login.css** — Admin login styles  
+├── 🧰 **admin.css** — Admin dashboard styles  
+│  
+├── 📘 **papers.json** — JSON data source (question paper metadata)  
+└── 📄 **README.md** — Project documentation
 
-CampusBytes/
-│
-├── index.html # 🎓 Student Interface
-├── login.html # 🔐 Admin Login Page
-├── admin.html # ⚙️ Admin Dashboard
-│
-├── login.js # Handles admin login validation
-├── admin.js # Handles paper upload simulation
-│
-├── style.css # Main site styling
-├── login.css # Admin login styles
-├── admin.css # Admin dashboard styles
-│
-├── papers.json # 📘 JSON data source (question paper metadata)
-└── README.md # 📄 Project documentation
-
---
+---
 
 ## 👨‍💻 Author
 
