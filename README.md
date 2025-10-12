@@ -1,0 +1,133 @@
+# 🎓 CampusBytes: The University Question Paper Vault
+
+> **A smart, centralized platform for managing and accessing previous year university question papers.**
+
+![HTML5](https://img.shields.io/badge/HTML5-orange?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-blue?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow?logo=javascript&logoColor=black)
+![JSON](https://img.shields.io/badge/JSON-lightgrey?logo=json&logoColor=black)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+
+---
+
+## 🌟 About The Project
+
+**CampusBytes** is a responsive front-end web application designed to simplify access to **Previous Year Question Papers** for Burdwan university students(Only Computer Science Students).  
+It acts as a **digital archive**, allowing students to easily **filter and retrieve** question papers based on semester, subject, year, and category.
+
+This repository includes all foundational **HTML**, **CSS**, and **JavaScript** files for both:
+- 🧭 The **Student Portal**
+- 🔐 A **Password-Protected Admin Dashboard**
+
+> 🎯 **Goal:** Empower students with a fast, organized, and easy-to-use academic resource hub.
+
+---
+
+## 🚀 Key Features
+
+| Feature | Description | File(s) |
+| :--- | :--- | :--- |
+| 🔍 **Dynamic Filtering** | Filter papers by **Semester**, **Subject**, **Category** (Internal/External/Practical), and **Year**. | `index.html` |
+| 📂 **Centralized Data** | All question paper metadata is maintained in a single, easy-to-update **JSON file**. | `papers.json` |
+| 🔑 **Admin Authentication** | Secure login for admin area to prevent unauthorized uploads. | `login.html`, `login.js` |
+| ⬆️ **Paper Upload (Simulated)** | Upload form for new papers with proper data structure (semester, subject, year, file). | `admin.html`, `admin.js` |
+
+---
+
+## 🛠️ Tech Stack
+
+Built entirely with **client-side technologies** — clean, lightweight, and dependency-free.
+
+- 🧱 **HTML5**
+- 🎨 **CSS3** (Dedicated styles for admin & login pages)
+- ⚙️ **Vanilla JavaScript** (Filtering, login logic, and upload simulation)
+- 📘 **JSON** (Data indexing for papers)
+- 💎 **Font Awesome** (For icons and UI enhancement)
+
+---
+
+## ⚙️ Getting Started
+
+Follow these steps to set up the project locally 👇
+
+### 🧩 Prerequisites
+
+- Any modern web browser (Chrome, Firefox, Edge,Brave)
+- A **local web server** (recommended) to fetch `papers.json`:
+  - Live Server (VS Code Extension)
+  - Python HTTP Server (`python -m http.server`)
+  - XAMPP / WAMP / MAMP
+
+---
+
+### 💻 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/code-with-akki010/college_pyq_website.git
+
+2. **Navigate to the project folder**
+   ```bash
+   cd college_pyq_website
+3. **Run the project**
+  - Option 1: Open index.html directly in your browser
+  - Option 2: Serve the folder locally
+Example:
+    ```bash
+    python -m http.server
+Then visit 👉 http://localhost:8000/index.html
+
+---
+
+## 📝 Usage & Navigation
+🎓 Student Portal (index.html)
+
+Students can:
+
+Choose Semester, Subject, Category, and Year
+
+Click “Search Papers” to view filtered results
+The data dynamically loads from papers.json.
+
+### 🔐 Admin Dashboard (admin.html)
+
+Open Login Page → login.html
+
+Use Demo Credentials (for testing only):
+
+Field	Value
+Username	admin
+Password	12345
+
+After login, you’ll be redirected to admin.html
+
+Use the Upload Form to simulate adding new question papers.
+
+### ⚠️ Note: This version uses simulated authentication. Replace with a backend system for real-world use.
+
+---
+## 📂 Project Structure
+CampusBytes/
+│
+├── index.html        # 🎓 Student Interface
+├── login.html        # 🔐 Admin Login Page
+├── admin.html        # ⚙️ Admin Dashboard
+│
+├── login.js          # Handles admin login validation
+├── admin.js          # Handles paper upload simulation
+│
+├── style.css         # Main site styling
+├── login.css         # Admin login styles
+├── admin.css         # Admin dashboard styles
+│
+├── papers.json       # 📘 JSON data source (question paper metadata)
+└── README.md         # 📄 Project documentation
+
+---
+## 👨‍💻 Author
+
+Developed by: code-with-akki010
+
+💬 Feel free to connect for collaborations or suggestions!
+
+---
