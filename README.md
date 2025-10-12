@@ -111,6 +111,48 @@ Students can:
 
 ---
 
+## 🌐 Live Demo & Hosting
+
+> 🚀 **CampusBytes** is proudly hosted and served directly from **GitHub Pages**,  
+> making it accessible anytime, anywhere — without any external hosting services.
+
+<p align="center">
+  <a href="https://code-with-akki010.github.io/College_pyq_website/" target="_blank">
+    🔗 <strong>Visit the Live Demo →</strong>  
+  </a>
+</p>
+
+### 🏗️ Hosting Details
+
+| Platform | Type | URL |
+| :-------- | :---- | :---- |
+| **GitHub Pages** | Front-End Hosting | [https://code-with-akki010.github.io/College_pyq_website/](https://code-with-akki010.github.io/College_pyq_website/) |
+| **Repository** | Source Code | [https://github.com/code-with-akki010/College_pyq_website](https://github.com/code-with-akki010/College_pyq_website) |
+
+> 💡 The project is automatically deployed using **GitHub Pages**,  
+> directly from the **`main` branch** of the repository.  
+> Any push to `main` updates the live site instantly.
+
+---
+
+### 💬 Access Summary
+
+- 🌐 **Live Student Portal:**  
+  [https://code-with-akki010.github.io/College_pyq_website/](https://code-with-akki010.github.io/College_pyq_website/)  
+  *(Auto-deployed from GitHub Pages)*
+
+- 🔐 **Admin Login:**  
+  Navigate to `/login.html` on the same live domain to test admin functionality.
+
+---
+
+⭐ **Tip:**  
+To host your own version, simply fork the repo → enable **GitHub Pages** → and your live link will look like this:
+
+  https://code-with-akki010.github.io/College_pyq_website/
+
+ ---
+
 ## 👨‍💻 Author
 
 Developed by: code-with-akki010
