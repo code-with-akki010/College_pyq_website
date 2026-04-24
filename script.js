@@ -1,87 +1,112 @@
+const API = "http://localhost:3000";
 let papersData = [];
 
 async function fetchData() {
-  const response = await fetch("papers.json");
-  papersData = await response.json();
-
-  populateSemesters();
+  try {
+    const res  = await fetch(`${API}/api/papers`);
+    papersData = await res.json();
+    populateSemesters();
+  } catch {
+    document.getElementById("papers").innerHTML =
+      "<li style='color:#f87171'>⚠️ Cannot reach server. Please start server.js first.</li>";
+  }
 }
 
 function populateSemesters() {
-  const semesterSelect = document.getElementById("semester");
-  let semesters = [...new Set(papersData.map(p => p.semester))];
-  
-  semesterSelect.innerHTML = "<option value=''>--Select Semester--</option>";
+  const sel = document.getElementById("semester");
+  const semesters = [...new Set(papersData.map(p => p.semester))].sort((a,b)=>a-b);
+
+  sel.innerHTML = "<option value=''>--Select Semester--</option>";
   semesters.forEach(s => {
-    semesterSelect.innerHTML += `<option value="${s}">Semester ${s}</option>`;
+    sel.innerHTML += `<option value="${s}">Semester ${s}</option>`;
   });
 
-  semesterSelect.addEventListener("change", populateSubjects);
+  sel.addEventListener("change", populateSubjects);
 }
 
 function populateSubjects() {
-  const subjectSelect = document.getElementById("subject");
   const semester = document.getElementById("semester").value;
+  const sel      = document.getElementById("subject");
 
-  let subjects = [...new Set(papersData.filter(p => p.semester == semester).map(p => p.subject))];
+  const subjects = [...new Set(
+    papersData.filter(p => p.semester == semester).map(p => p.subject)
+  )].sort();
 
-  subjectSelect.innerHTML = "<option value=''>--Select Subject--</option>";
+  sel.innerHTML = "<option value=''>--Select Subject--</option>";
   subjects.forEach(sub => {
-    subjectSelect.innerHTML += `<option value="${sub}">${sub}</option>`;
+    sel.innerHTML += `<option value="${sub}">${sub}</option>`;
   });
 
-  subjectSelect.addEventListener("change", populateCategories);
+  sel.addEventListener("change", populateCategories);
 }
 
 function populateCategories() {
-  const categorySelect = document.getElementById("category");
   const semester = document.getElementById("semester").value;
-  const subject = document.getElementById("subject").value;
+  const subject  = document.getElementById("subject").value;
+  const sel      = document.getElementById("category");
 
-  let categories = [...new Set(papersData.filter(p => p.semester == semester && p.subject == subject).map(p => p.category))];
+  const categories = [...new Set(
+    papersData
+      .filter(p => p.semester == semester && p.subject == subject)
+      .map(p => p.category)
+  )].sort();
 
-  categorySelect.innerHTML = "<option value=''>--Select Category--</option>";
+  sel.innerHTML = "<option value=''>--Select Category--</option>";
   categories.forEach(cat => {
-    categorySelect.innerHTML += `<option value="${cat}">${cat}</option>`;
+    sel.innerHTML += `<option value="${cat}">${cat}</option>`;
   });
 
-  categorySelect.addEventListener("change", populateYears);
+  sel.addEventListener("change", populateYears);
 }
 
 function populateYears() {
-  const yearSelect = document.getElementById("year");
   const semester = document.getElementById("semester").value;
-  const subject = document.getElementById("subject").value;
+  const subject  = document.getElementById("subject").value;
   const category = document.getElementById("category").value;
+  const sel      = document.getElementById("year");
 
-  let years = [...new Set(papersData.filter(p => p.semester == semester && p.subject == subject && p.category == category).map(p => p.year))];
+  const years = [...new Set(
+    papersData
+      .filter(p => p.semester == semester && p.subject == subject && p.category == category)
+      .map(p => p.year)
+  )].sort((a,b)=>b-a);
 
-  yearSelect.innerHTML = "<option value=''>--Select Year--</option>";
+  sel.innerHTML = "<option value=''>--Select Year--</option>";
   years.forEach(y => {
-    yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
+    sel.innerHTML += `<option value="${y}">${y}</option>`;
   });
 }
 
 function loadPapers() {
   const semester = document.getElementById("semester").value;
-  const subject = document.getElementById("subject").value;
+  const subject  = document.getElementById("subject").value;
   const category = document.getElementById("category").value;
-  const year = document.getElementById("year").value;
+  const year     = document.getElementById("year").value;
+  const list     = document.getElementById("papers");
 
-  const papersList = document.getElementById("papers");
-  papersList.innerHTML = "";
+  list.innerHTML = "";
 
-  let results = papersData.filter(p => 
-    p.semester == semester && p.subject == subject && p.category == category && p.year == year
+  const results = papersData.filter(p =>
+    p.semester == semester &&
+    p.subject  == subject  &&
+    p.category == category &&
+    p.year     == year
   );
 
   if (results.length === 0) {
-    papersList.innerHTML = "<li>No papers found.</li>";
+    list.innerHTML = "<li>No papers found for this selection.</li>";
   } else {
     results.forEach(r => {
-      papersList.innerHTML += `<li><a href="${r.file}" target="_blank">${r.subject} - ${r.category} (${r.year})</a></li>`;
+      list.innerHTML += `
+        <li>
+          <a href="${API}/${r.file}" target="_blank">
+            <i class="fa-solid fa-file-pdf"></i>
+            ${r.subject} — ${r.category} (${r.year})
+          </a>
+        </li>`;
     });
   }
 }
 
 fetchData();
+
