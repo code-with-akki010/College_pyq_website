@@ -1,4 +1,4 @@
-const API = "http://localhost:3000";
+const API = "";
 let papersData = [];
 
 async function fetchData() {
@@ -109,4 +109,5 @@ function loadPapers() {
 }
 
 fetchData();
+
 
