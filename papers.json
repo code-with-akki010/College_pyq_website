@@ -1,2018 +1,394 @@
 [
   {
     "semester": 1,
-    "subject": "Major",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem1_subject1_internal_2021.pdf"
+    "subject": "Bengali AEC",
+    "category": "External",
+    "year": 2023,
+    "file": "papers/SEM1_Bengali_AEC_External_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "Minor",
+    "subject": "Bengali AEC",
     "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem1_subject1_internal_2022.pdf"
+    "year": 2023,
+    "file": "papers/SEM1_Bengali_AEC_Internal_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "SEC",
+    "subject": "CalculusGeometry  Vector Calculus",
     "category": "External",
-    "year": 2021,
-    "file": "papers/sem1_subject1_external_2021.pdf"
+    "year": 2023,
+    "file": "papers/SEM1_CalculusGeometry__Vector_Calculus_External_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "AEC",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem1_subject1_external_2022.pdf"
+    "subject": "CalculusGeometry  Vector Calculus",
+    "category": "Internal",
+    "year": 2023,
+    "file": "papers/SEM1_CalculusGeometry__Vector_Calculus_Internal_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "MDC",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem1_subject1_practical_2021.pdf"
+    "subject": "Digital Logic and Fundamentals",
+    "category": "External",
+    "year": 2023,
+    "file": "papers/SEM1_Digital_Logic_and_Fundamentals_External_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "VAC",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem1_subject1_practical_2022.pdf"
+    "subject": "Digital Logic and Fundamentals",
+    "category": "Internal",
+    "year": 2023,
+    "file": "papers/SEM1_Digital_Logic_and_Fundamentals_Internal_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem1_subject2_internal_2021.pdf"
+    "subject": "Digital Logic and Fundamentals",
+    "category": "Practical",
+    "year": 2023,
+    "file": "papers/SEM1_Digital_Logic_and_Fundamentals_Practical_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem1_subject2_internal_2022.pdf"
+    "subject": "Elementary Economics",
+    "category": "External",
+    "year": 2023,
+    "file": "papers/SEM1_Elementary_Economics_External_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "Subject2",
+    "subject": "Environmental Science",
     "category": "External",
-    "year": 2021,
-    "file": "papers/sem1_subject2_external_2021.pdf"
+    "year": 2023,
+    "file": "papers/SEM1_Environmental_Science_External_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem1_subject2_external_2022.pdf"
+    "subject": "Python Programming",
+    "category": "Internal",
+    "year": 2023,
+    "file": "papers/SEM1_Python_Programming_Internal_2023.pdf"
   },
   {
     "semester": 1,
-    "subject": "Subject2",
+    "subject": "Python Programming",
     "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem1_subject2_practical_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem1_subject2_practical_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem1_subject3_internal_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem1_subject3_internal_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem1_subject3_external_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem1_subject3_external_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem1_subject3_practical_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem1_subject3_practical_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem1_subject4_internal_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem1_subject4_internal_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem1_subject4_external_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem1_subject4_external_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem1_subject4_practical_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem1_subject4_practical_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem1_subject5_internal_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem1_subject5_internal_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem1_subject5_external_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem1_subject5_external_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem1_subject5_practical_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem1_subject5_practical_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem1_subject6_internal_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem1_subject6_internal_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem1_subject6_external_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem1_subject6_external_2022.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem1_subject6_practical_2021.pdf"
-  },
-  {
-    "semester": 1,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem1_subject6_practical_2022.pdf"
+    "year": 2023,
+    "file": "papers/SEM1_Python_Programming_Practical_2023.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem2_subject1_internal_2021.pdf"
+    "subject": "C Programming",
+    "category": "External",
+    "year": 2024,
+    "file": "papers/SEM2_C_Programming_External_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject1",
+    "subject": "C Programming",
     "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem2_subject1_internal_2022.pdf"
+    "year": 2024,
+    "file": "papers/SEM2_C_Programming_Internal_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem2_subject1_external_2021.pdf"
+    "subject": "C Programming",
+    "category": "Practical",
+    "year": 2024,
+    "file": "papers/SEM2_C_Programming_Practical_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject1",
+    "subject": "Digital Technical SolutionsDTS",
     "category": "External",
-    "year": 2022,
-    "file": "papers/sem2_subject1_external_2022.pdf"
+    "year": 2024,
+    "file": "papers/SEM2_Digital_Technical_SolutionsDTS_External_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem2_subject1_practical_2021.pdf"
+    "subject": "Digital Technical SolutionsDTS",
+    "category": "Internal",
+    "year": 2024,
+    "file": "papers/SEM2_Digital_Technical_SolutionsDTS_Internal_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject1",
+    "subject": "Digital Technical SolutionsDTS",
     "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem2_subject1_practical_2022.pdf"
+    "year": 2024,
+    "file": "papers/SEM2_Digital_Technical_SolutionsDTS_Practical_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem2_subject2_internal_2021.pdf"
+    "subject": "Functional English",
+    "category": "External",
+    "year": 2024,
+    "file": "papers/SEM2_Functional_English_External_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject2",
+    "subject": "Functional English",
     "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem2_subject2_internal_2022.pdf"
+    "year": 2024,
+    "file": "papers/SEM2_Functional_English_Internal_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject2",
+    "subject": "Indian Economy",
     "category": "External",
-    "year": 2021,
-    "file": "papers/sem2_subject2_external_2021.pdf"
+    "year": 2024,
+    "file": "papers/SEM2_Indian_Economy_External_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem2_subject2_external_2022.pdf"
+    "subject": "Indian Economy",
+    "category": "Internal",
+    "year": 2024,
+    "file": "papers/SEM2_Indian_Economy_Internal_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem2_subject2_practical_2021.pdf"
+    "subject": "Mechanics",
+    "category": "External",
+    "year": 2024,
+    "file": "papers/SEM2_Mechanics_External_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem2_subject2_practical_2022.pdf"
+    "subject": "Mechanics",
+    "category": "Internal",
+    "year": 2024,
+    "file": "papers/SEM2_Mechanics_Internal_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject3",
+    "subject": "System Administration And Maintenance",
     "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem2_subject3_internal_2021.pdf"
+    "year": 2024,
+    "file": "papers/SEM2_System_Administration_And_Maintenance_Internal_2024.pdf"
   },
   {
     "semester": 2,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem2_subject3_internal_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem2_subject3_external_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem2_subject3_external_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject3",
+    "subject": "System Administration And Maintenance",
     "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem2_subject3_practical_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem2_subject3_practical_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem2_subject4_internal_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem2_subject4_internal_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem2_subject4_external_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem2_subject4_external_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem2_subject4_practical_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem2_subject4_practical_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem2_subject5_internal_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem2_subject5_internal_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem2_subject5_external_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem2_subject5_external_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem2_subject5_practical_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem2_subject5_practical_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem2_subject6_internal_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem2_subject6_internal_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem2_subject6_external_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem2_subject6_external_2022.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem2_subject6_practical_2021.pdf"
-  },
-  {
-    "semester": 2,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem2_subject6_practical_2022.pdf"
+    "year": 2024,
+    "file": "papers/SEM2_System_Administration_And_Maintenance_Practical_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Major",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem3_subject1_internal_2021.pdf"
+    "subject": "Bengali AEC",
+    "category": "External",
+    "year": 2024,
+    "file": "papers/SEM3_Bengali_AEC_External_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem3_subject1_internal_2022.pdf"
+    "subject": "Data Structures",
+    "category": "External",
+    "year": 2024,
+    "file": "papers/SEM3_Data_Structures_External_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem3_subject1_external_2021.pdf"
+    "subject": "Data Structures",
+    "category": "Internal",
+    "year": 2024,
+    "file": "papers/SEM3_Data_Structures_Internal_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem3_subject1_external_2022.pdf"
+    "subject": "Data Structures",
+    "category": "Practical",
+    "year": 2024,
+    "file": "papers/SEM3_Data_Structures_Practical_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem3_subject1_practical_2021.pdf"
+    "subject": "Discrete Structures",
+    "category": "External",
+    "year": 2024,
+    "file": "papers/SEM3_Discrete_Structures_External_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem3_subject1_practical_2022.pdf"
+    "subject": "Discrete Structures",
+    "category": "Internal",
+    "year": 2024,
+    "file": "papers/SEM3_Discrete_Structures_Internal_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem3_subject2_internal_2021.pdf"
+    "subject": "Medical Sales Representative MSR",
+    "category": "External",
+    "year": 2024,
+    "file": "papers/SEM3_Medical_Sales_Representative_MSR_External_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem3_subject2_internal_2022.pdf"
+    "subject": "Money and Banking",
+    "category": "External",
+    "year": 2024,
+    "file": "papers/SEM3_Money_and_Banking_External_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem3_subject2_external_2021.pdf"
+    "subject": "PHP Programming",
+    "category": "Internal",
+    "year": 2024,
+    "file": "papers/SEM3_PHP_Programming_Internal_2024.pdf"
   },
   {
     "semester": 3,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem3_subject2_external_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject2",
+    "subject": "PHP Programming",
     "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem3_subject2_practical_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem3_subject2_practical_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem3_subject3_internal_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem3_subject3_internal_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem3_subject3_external_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem3_subject3_external_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem3_subject3_practical_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem3_subject3_practical_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem3_subject4_internal_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem3_subject4_internal_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem3_subject4_external_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem3_subject4_external_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem3_subject4_practical_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem3_subject4_practical_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem3_subject5_internal_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem3_subject5_internal_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem3_subject5_external_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem3_subject5_external_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem3_subject5_practical_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem3_subject5_practical_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem3_subject6_internal_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem3_subject6_internal_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem3_subject6_external_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem3_subject6_external_2022.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem3_subject6_practical_2021.pdf"
-  },
-  {
-    "semester": 3,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem3_subject6_practical_2022.pdf"
+    "year": 2024,
+    "file": "papers/SEM3_PHP_Programming_Practical_2024.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem4_subject1_internal_2021.pdf"
+    "subject": "Database Management Systems",
+    "category": "External",
+    "year": 2025,
+    "file": "papers/SEM4_Database_Management_Systems_External_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject1",
+    "subject": "Database Management Systems",
     "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem4_subject1_internal_2022.pdf"
+    "year": 2025,
+    "file": "papers/SEM4_Database_Management_Systems_Internal_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem4_subject1_external_2021.pdf"
+    "subject": "Database Management Systems",
+    "category": "Practical",
+    "year": 2025,
+    "file": "papers/SEM4_Database_Management_Systems_Practical_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject1",
+    "subject": "Functional English",
     "category": "External",
-    "year": 2022,
-    "file": "papers/sem4_subject1_external_2022.pdf"
+    "year": 2025,
+    "file": "papers/SEM4_Functional_English_External_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem4_subject1_practical_2021.pdf"
+    "subject": "Object Oriented Programming with JAVA",
+    "category": "External",
+    "year": 2025,
+    "file": "papers/SEM4_Object_Oriented_Programming_with_JAVA_External_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem4_subject1_practical_2022.pdf"
+    "subject": "Object Oriented Programming with JAVA",
+    "category": "Internal",
+    "year": 2025,
+    "file": "papers/SEM4_Object_Oriented_Programming_with_JAVA_Internal_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem4_subject2_internal_2021.pdf"
+    "subject": "Operating System",
+    "category": "External",
+    "year": 2025,
+    "file": "papers/SEM4_Operating_System_External_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject2",
+    "subject": "Operating System",
     "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem4_subject2_internal_2022.pdf"
+    "year": 2025,
+    "file": "papers/SEM4_Operating_System_Internal_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem4_subject2_external_2021.pdf"
+    "subject": "Operating System",
+    "category": "Practical",
+    "year": 2025,
+    "file": "papers/SEM4_Operating_System_Practical_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject2",
+    "subject": "Ordinary Differential Equations",
     "category": "External",
-    "year": 2022,
-    "file": "papers/sem4_subject2_external_2022.pdf"
+    "year": 2025,
+    "file": "papers/SEM4_Ordinary_Differential_Equations_External_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem4_subject2_practical_2021.pdf"
+    "subject": "Ordinary Differential Equations",
+    "category": "Internal",
+    "year": 2025,
+    "file": "papers/SEM4_Ordinary_Differential_Equations_Internal_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem4_subject2_practical_2022.pdf"
+    "subject": "Thermal Physics",
+    "category": "External",
+    "year": 2025,
+    "file": "papers/SEM4_Thermal_Physics_External_2025.pdf"
   },
   {
     "semester": 4,
-    "subject": "Subject3",
+    "subject": "Thermal Physics",
     "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem4_subject3_internal_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem4_subject3_internal_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem4_subject3_external_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem4_subject3_external_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem4_subject3_practical_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem4_subject3_practical_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem4_subject4_internal_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem4_subject4_internal_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem4_subject4_external_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem4_subject4_external_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem4_subject4_practical_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem4_subject4_practical_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem4_subject5_internal_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem4_subject5_internal_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem4_subject5_external_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem4_subject5_external_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem4_subject5_practical_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem4_subject5_practical_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem4_subject6_internal_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem4_subject6_internal_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem4_subject6_external_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem4_subject6_external_2022.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem4_subject6_practical_2021.pdf"
-  },
-  {
-    "semester": 4,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem4_subject6_practical_2022.pdf"
+    "year": 2025,
+    "file": "papers/SEM4_Thermal_Physics_Internal_2025.pdf"
   },
   {
     "semester": 5,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem5_subject1_internal_2021.pdf"
+    "subject": "Computer Organisation",
+    "category": "External",
+    "year": 2025,
+    "file": "papers/SEM5_Computer_Organisation_External_2025.pdf"
   },
   {
     "semester": 5,
-    "subject": "Subject1",
+    "subject": "Computer Organisation",
     "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem5_subject1_internal_2022.pdf"
+    "year": 2025,
+    "file": "papers/SEM5_Computer_Organisation_Internal_2025.pdf"
   },
   {
     "semester": 5,
-    "subject": "Subject1",
+    "subject": "Data Coummunication and Networking",
     "category": "External",
-    "year": 2021,
-    "file": "papers/sem5_subject1_external_2021.pdf"
+    "year": 2025,
+    "file": "papers/SEM5_Data_Coummunication_and_Networking_External_2025.pdf"
   },
   {
     "semester": 5,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem5_subject1_external_2022.pdf"
+    "subject": "Data Coummunication and Networking",
+    "category": "Internal",
+    "year": 2025,
+    "file": "papers/SEM5_Data_Coummunication_and_Networking_Internal_2025.pdf"
   },
   {
     "semester": 5,
-    "subject": "Subject1",
+    "subject": "Data Coummunication and Networking",
     "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem5_subject1_practical_2021.pdf"
+    "year": 2025,
+    "file": "papers/SEM5_Data_Coummunication_and_Networking_Practical_2025.pdf"
   },
   {
     "semester": 5,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem5_subject1_practical_2022.pdf"
+    "subject": "Medical Sales Representative MSR",
+    "category": "External",
+    "year": 2025,
+    "file": "papers/SEM5_Medical_Sales_Representative_MSR_External_2025.pdf"
   },
   {
     "semester": 5,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem5_subject2_internal_2021.pdf"
+    "subject": "Software Engineering",
+    "category": "External",
+    "year": 2025,
+    "file": "papers/SEM5_Software_Engineering_External_2025.pdf"
   },
   {
     "semester": 5,
-    "subject": "Subject2",
+    "subject": "Software Engineering",
     "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem5_subject2_internal_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem5_subject2_external_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem5_subject2_external_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem5_subject2_practical_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem5_subject2_practical_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem5_subject3_internal_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem5_subject3_internal_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem5_subject3_external_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem5_subject3_external_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem5_subject3_practical_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem5_subject3_practical_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem5_subject4_internal_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem5_subject4_internal_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem5_subject4_external_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem5_subject4_external_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem5_subject4_practical_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem5_subject4_practical_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem5_subject5_internal_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem5_subject5_internal_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem5_subject5_external_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem5_subject5_external_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem5_subject5_practical_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem5_subject5_practical_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem5_subject6_internal_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem5_subject6_internal_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem5_subject6_external_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem5_subject6_external_2022.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem5_subject6_practical_2021.pdf"
-  },
-  {
-    "semester": 5,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem5_subject6_practical_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem6_subject1_internal_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem6_subject1_internal_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem6_subject1_external_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem6_subject1_external_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem6_subject1_practical_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem6_subject1_practical_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem6_subject2_internal_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem6_subject2_internal_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem6_subject2_external_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem6_subject2_external_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem6_subject2_practical_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem6_subject2_practical_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem6_subject3_internal_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem6_subject3_internal_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem6_subject3_external_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem6_subject3_external_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem6_subject3_practical_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem6_subject3_practical_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem6_subject4_internal_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem6_subject4_internal_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem6_subject4_external_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem6_subject4_external_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem6_subject4_practical_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem6_subject4_practical_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem6_subject5_internal_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem6_subject5_internal_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem6_subject5_external_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem6_subject5_external_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem6_subject5_practical_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem6_subject5_practical_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem6_subject6_internal_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem6_subject6_internal_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem6_subject6_external_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem6_subject6_external_2022.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem6_subject6_practical_2021.pdf"
-  },
-  {
-    "semester": 6,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem6_subject6_practical_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem7_subject1_internal_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem7_subject1_internal_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem7_subject1_external_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem7_subject1_external_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem7_subject1_practical_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem7_subject1_practical_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem7_subject2_internal_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem7_subject2_internal_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem7_subject2_external_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem7_subject2_external_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem7_subject2_practical_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem7_subject2_practical_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem7_subject3_internal_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem7_subject3_internal_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem7_subject3_external_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem7_subject3_external_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem7_subject3_practical_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem7_subject3_practical_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem7_subject4_internal_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem7_subject4_internal_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem7_subject4_external_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem7_subject4_external_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem7_subject4_practical_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem7_subject4_practical_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem7_subject5_internal_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem7_subject5_internal_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem7_subject5_external_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem7_subject5_external_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem7_subject5_practical_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem7_subject5_practical_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem7_subject6_internal_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem7_subject6_internal_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem7_subject6_external_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem7_subject6_external_2022.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem7_subject6_practical_2021.pdf"
-  },
-  {
-    "semester": 7,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem7_subject6_practical_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem8_subject1_internal_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject1",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem8_subject1_internal_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem8_subject1_external_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject1",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem8_subject1_external_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem8_subject1_practical_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject1",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem8_subject1_practical_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem8_subject2_internal_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject2",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem8_subject2_internal_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem8_subject2_external_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject2",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem8_subject2_external_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem8_subject2_practical_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject2",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem8_subject2_practical_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem8_subject3_internal_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject3",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem8_subject3_internal_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem8_subject3_external_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject3",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem8_subject3_external_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem8_subject3_practical_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject3",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem8_subject3_practical_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem8_subject4_internal_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject4",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem8_subject4_internal_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem8_subject4_external_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject4",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem8_subject4_external_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem8_subject4_practical_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject4",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem8_subject4_practical_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem8_subject5_internal_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject5",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem8_subject5_internal_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem8_subject5_external_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject5",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem8_subject5_external_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem8_subject5_practical_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject5",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem8_subject5_practical_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2021,
-    "file": "papers/sem8_subject6_internal_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject6",
-    "category": "Internal",
-    "year": 2022,
-    "file": "papers/sem8_subject6_internal_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2021,
-    "file": "papers/sem8_subject6_external_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject6",
-    "category": "External",
-    "year": 2022,
-    "file": "papers/sem8_subject6_external_2022.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2021,
-    "file": "papers/sem8_subject6_practical_2021.pdf"
-  },
-  {
-    "semester": 8,
-    "subject": "Subject6",
-    "category": "Practical",
-    "year": 2022,
-    "file": "papers/sem8_subject6_practical_2022.pdf"
+    "year": 2025,
+    "file": "papers/SEM5_Software_Engineering_Internal_2025.pdf"
   }
 ]
