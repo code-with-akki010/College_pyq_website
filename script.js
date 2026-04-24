@@ -1,9 +1,9 @@
-const API = "";
+const API = "https://college-pyq-website-1.onrender.com";
 let papersData = [];
 
 async function fetchData() {
   try {
-    const res  = await fetch(`${API}/api/papers`);
+    const res = await fetch(`${API}/api/papers`);
     papersData = await res.json();
     populateSemesters();
   } catch {
@@ -14,7 +14,7 @@ async function fetchData() {
 
 function populateSemesters() {
   const sel = document.getElementById("semester");
-  const semesters = [...new Set(papersData.map(p => p.semester))].sort((a,b)=>a-b);
+  const semesters = [...new Set(papersData.map(p => p.semester))].sort((a, b) => a - b);
 
   sel.innerHTML = "<option value=''>--Select Semester--</option>";
   semesters.forEach(s => {
@@ -26,7 +26,7 @@ function populateSemesters() {
 
 function populateSubjects() {
   const semester = document.getElementById("semester").value;
-  const sel      = document.getElementById("subject");
+  const sel = document.getElementById("subject");
 
   const subjects = [...new Set(
     papersData.filter(p => p.semester == semester).map(p => p.subject)
@@ -42,8 +42,8 @@ function populateSubjects() {
 
 function populateCategories() {
   const semester = document.getElementById("semester").value;
-  const subject  = document.getElementById("subject").value;
-  const sel      = document.getElementById("category");
+  const subject = document.getElementById("subject").value;
+  const sel = document.getElementById("category");
 
   const categories = [...new Set(
     papersData
@@ -61,15 +61,15 @@ function populateCategories() {
 
 function populateYears() {
   const semester = document.getElementById("semester").value;
-  const subject  = document.getElementById("subject").value;
+  const subject = document.getElementById("subject").value;
   const category = document.getElementById("category").value;
-  const sel      = document.getElementById("year");
+  const sel = document.getElementById("year");
 
   const years = [...new Set(
     papersData
       .filter(p => p.semester == semester && p.subject == subject && p.category == category)
       .map(p => p.year)
-  )].sort((a,b)=>b-a);
+  )].sort((a, b) => b - a);
 
   sel.innerHTML = "<option value=''>--Select Year--</option>";
   years.forEach(y => {
@@ -79,18 +79,18 @@ function populateYears() {
 
 function loadPapers() {
   const semester = document.getElementById("semester").value;
-  const subject  = document.getElementById("subject").value;
+  const subject = document.getElementById("subject").value;
   const category = document.getElementById("category").value;
-  const year     = document.getElementById("year").value;
-  const list     = document.getElementById("papers");
+  const year = document.getElementById("year").value;
+  const list = document.getElementById("papers");
 
   list.innerHTML = "";
 
   const results = papersData.filter(p =>
     p.semester == semester &&
-    p.subject  == subject  &&
+    p.subject == subject &&
     p.category == category &&
-    p.year     == year
+    p.year == year
   );
 
   if (results.length === 0) {
@@ -109,5 +109,3 @@ function loadPapers() {
 }
 
 fetchData();
-
-
