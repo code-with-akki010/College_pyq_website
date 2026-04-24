@@ -5,19 +5,18 @@
 ![HTML5](https://img.shields.io/badge/HTML5-orange?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-blue?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-yellow?logo=javascript&logoColor=black)
-![JSON](https://img.shields.io/badge/JSON-lightgrey?logo=json&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-green?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-lightgrey?logo=express&logoColor=black)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
 ---
 
 ## 🌟 About The Project
 
-**CampusBytes** is a responsive front-end web application designed to simplify access to **Previous Year Question Papers** for Burdwan university students(Only Computer Science Students).  
+**CampusBytes** is a responsive web application designed to simplify access to **Previous Year Question Papers** for Burdwan university students (Only Computer Science Students).  
 It acts as a **digital archive**, allowing students to easily **filter and retrieve** question papers based on semester, subject, year, and category.
 
-This repository includes all foundational **HTML**, **CSS**, and **JavaScript** files for both:
-- 🧭 The **Student Portal**
-- 🔐 A **Password-Protected Admin Dashboard**
+This repository includes both a **Student Portal** and a **Password-Protected Admin Dashboard** with a **Node.js/Express backend** to handle real PDF uploads and automatic database management.
 
 > 🎯 **Goal:** Empower students with a fast, organized, and easy-to-use academic resource hub.
 
@@ -27,66 +26,80 @@ This repository includes all foundational **HTML**, **CSS**, and **JavaScript** 
 
 | Feature | Description | File(s) |
 | :--- | :--- | :--- |
-| 🔍 **Dynamic Filtering** | Filter papers by **Semester**, **Subject**, **Category** (Internal/External/Practical), and **Year**. | `index.html` |
-| 📂 **Centralized Data** | All question paper metadata is maintained in a single, easy-to-update **JSON file**. | `papers.json` |
-| 🔑 **Admin Authentication** | Secure login for admin area to prevent unauthorized uploads. | `login.html`, `login.js` |
-| ⬆️ **Paper Upload (Simulated)** | Upload form for new papers with proper data structure (semester, subject, year, file). | `admin.html`, `admin.js` |
+| 🔍 **Dynamic Filtering** | Filter papers by **Semester**, **Subject**, **Category** (Internal/External/Practical), and **Year**. | `index.html`, `script.js` |
+| 🤖 **Automated Data Indexing** | The server auto-scans uploaded PDFs and regenerates `papers.json` automatically. No manual data entry needed! | `server.js` |
+| 🔑 **Admin Authentication** | Secure login for the admin area to prevent unauthorized uploads. | `login.html`, `login.js` |
+| ⬆️ **Real PDF Uploads** | Upload form for new papers that saves files locally and manages the database. | `admin.html`, `admin.js`, `server.js` |
 
 ---
 
 ## 🛠️ Tech Stack
 
-Built entirely with **client-side technologies** — clean, lightweight, and dependency-free.
-
-- 🧱 **HTML5**
-- 🎨 **CSS3** (Dedicated styles for admin & login pages)
-- ⚙️ **Vanilla JavaScript** (Filtering, login logic, and upload simulation)
-- 📘 **JSON** (Data indexing for papers)
-- 💎 **Font Awesome** (For icons and UI enhancement)
+- **Frontend:**
+  - 🧱 **HTML5** & 🎨 **CSS3** (Fully responsive, mobile-friendly design)
+  - ⚙️ **Vanilla JavaScript** (Dynamic filtering and UI logic)
+  - 💎 **Font Awesome** (Icons)
+- **Backend:**
+  - 🟢 **Node.js** & **Express** (API and server logic)
+  - 📦 **Multer** (Handling file uploads)
+  - 📘 **JSON** (Auto-generated database)
 
 ---
 
 ## ⚙️ Getting Started
 
-Follow these steps to set up the project locally 👇
+Follow these steps to set up the project and run the server locally 👇
 
 ### 🧩 Prerequisites
 
-- Any modern web browser (Chrome, Firefox, Edge,Brave)
-- A **local web server** (recommended) to fetch `papers.json`:
-  - Live Server (VS Code Extension)
-  - Python HTTP Server (`python -m http.server`)
-  - XAMPP / WAMP / MAMP
+- Any modern web browser (Chrome, Firefox, Edge, Brave)
+- [Node.js](https://nodejs.org/) installed on your computer.
+
+### 🚀 Installation & Running
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/code-with-akki010/College_pyq_website.git
+   cd College_pyq_website
+   ```
+2. Install the backend dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the server:
+   ```bash
+   npm start
+   ```
+4. Open your browser and go to `http://localhost:3000`
 
 ---
 
 ## 📝 Usage & Navigation
 
-### 🎓 Student Portal (`index.html`)
+### 🎓 Student Portal (`http://localhost:3000`)
 
 Students can:
 
 - Choose **Semester**, **Subject**, **Category**, and **Year**  
 - Click **“Search Papers”** to view filtered results  
-- The data is dynamically loaded from **`papers.json`**
+- The data is dynamically loaded from the live API (`/api/papers`).
 
 ---
 
-### 🔐 Admin Dashboard (`admin.html`)
+### 🔐 Admin Dashboard (`http://localhost:3000/login.html`)
 
-1. Open the **Login Page** → `login.html`  
-2. Use the **Demo Credentials** (for testing only):
+1. Open the **Login Page**  
+2. Use the **Credentials**:
 
 | Field | Value |
 | :--- | :--- |
-| **Username** | `admin` |
-| **Password** | `12345` |
+| **Username** | `5min_topper` |
+| **Password** | `Luck@100` |
 
 3. After successful login, you’ll be redirected to **`admin.html`**  
-4. Use the **Upload Form** to simulate adding new question papers.
+4. Use the **Upload Form** to add new question papers (PDFs). They will be saved to the `papers/` folder and instantly available on the main site.
 
-> ⚠️ **Note:** This version uses *simulated authentication*.  
-> For real-world use, integrate a **secure backend system** (e.g., Firebase, Node.js, or PHP).
+> ⚠️ **Note:** The login mechanism uses client-side validation for demonstration. For production use, authentication should be moved to the backend.
 
 ---
 
@@ -94,68 +107,38 @@ Students can:
 
 📁 **College_pyq_website/**  
 │  
+├── ⚙️ **server.js** — Express backend (Uploads & API)
+├── 📦 **package.json** — Node.js dependencies
+│
 ├── 🧩 **index.html** — 🎓 Student Interface  
 ├── 🔑 **login.html** — Admin Login Page  
-├── ⚙️ **admin.html** — Admin Dashboard  
+├── 🛠️ **admin.html** — Admin Dashboard  
 │  
 ├── 🧠 **login.js** — Handles admin login validation  
-├── 🚀 **admin.js** — Handles paper upload simulation  
-├── ⚡ **script.js** — Controls dynamic filtering and interactivity  
+├── 🚀 **admin.js** — Handles paper upload to the server  
+├── ⚡ **script.js** — Controls dynamic filtering and API fetching  
 │  
 ├── 🎨 **style.css** — Main site styling  
 ├── 🖋️ **login.css** — Admin login styles  
 ├── 🧰 **admin.css** — Admin dashboard styles  
 │  
-├── 📘 **papers.json** — JSON data source (question paper metadata)  
+├── 📁 **papers/** — Directory where uploaded PDFs are stored
+├── 📘 **papers.json** — Auto-generated metadata for all papers
 └── 📄 **README.md** — Project documentation
 
 ---
 
 ## 🌐 Live Demo & Hosting
 
-> 🚀 **CampusBytes** is proudly hosted and served directly from **GitHub Pages**,  
-> making it accessible anytime, anywhere — without any external hosting services.
+> ⚠️ **Important Note on Hosting:** Because this project now includes a **Node.js backend** for real file uploads, hosting it purely on GitHub Pages will only display the static frontend. The search and upload features require the backend server to be running.
 
-<p align="left">
-  <a href="https://code-with-akki010.github.io/College_pyq_website/" target="_blank">
-    🔗 <strong>Visit the Live Demo →</strong>  
-  </a>
-</p>
-
-### 🏗️ Hosting Details
-
-| Platform | Type | URL |
-| :-------- | :---- | :---- |
-| **GitHub Pages** | Front-End Hosting | [https://code-with-akki010.github.io/College_pyq_website/](https://code-with-akki010.github.io/College_pyq_website/) |
-| **Repository** | Source Code | [https://github.com/code-with-akki010/College_pyq_website](https://github.com/code-with-akki010/College_pyq_website) |
-
-> 💡 The project is automatically deployed using **GitHub Pages**,  
-> directly from the **`main` branch** of the repository.  
-> Any push to `main` updates the live site instantly.
+To host the fully functional site (frontend + backend), you will need a hosting provider that supports Node.js (such as **Render**, **Railway**, **Heroku**, or a VPS).
 
 ---
-
-### 💬 Access Summary
-
-- 🌐 **Live Student Portal:**  
-  [https://code-with-akki010.github.io/College_pyq_website/](https://code-with-akki010.github.io/College_pyq_website/)  
-  *(Auto-deployed from GitHub Pages)*
-
-- 🔐 **Admin Login:**  
-  Navigate to `/login.html` on the same live domain to test admin functionality.
-
----
-
-⭐ **Tip:**  
-To host your own version, simply fork the repo → enable **GitHub Pages** → and your live link will look like this:
-
-  https://code-with-akki010.github.io/College_pyq_website/
-
- ---
 
 ## 👨‍💻 Author
 
-Developed by: code-with-akki010
+Developed by: **code-with-akki010**
 
 💬 Feel free to connect for collaborations or suggestions!
 
