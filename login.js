@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password").value.trim();
 
     //  Demo login credentials (replace with real auth in backend)
-    const adminUser = "admin";
-    const adminPass = "12345";
+    const adminUser = "5min_topper";
+    const adminPass = "Luck@100";
 
     if (username === adminUser && password === adminPass) {
       alert(" Login successful!");
