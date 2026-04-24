@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!--  Navbar -->
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo"><i class="fa-solid fa-graduation-cap"></i> CampusBytes</div>
         <ul class="nav-links">
@@ -21,50 +21,78 @@
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </nav>
+
     <header>
         <h1><i class="fa-solid fa-gear"></i> Admin Dashboard - CampusBytes</h1>
     </header>
 
     <main>
-        <section>
-            <h2>Upload New Question Paper</h2>
-            <form>
-                <label for="semester">Semester:</label>
-                <input type="number" id="semester" min="1" max="8" required>
+        <!-- Upload Section -->
+        <section class="upload-section">
+            <h2><i class="fa-solid fa-cloud-arrow-up"></i> Upload New Question Paper</h2>
 
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" required>
+            <div id="status-msg" class="status-msg"></div>
 
-                <label for="category">Category:</label>
-                <select id="category" required>
-                    <option value="Internal">Internal</option>
-                    <option value="External">External</option>
-                    <option value="Practical">Practical</option>
-                </select>
+            <form id="upload-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="semester">Semester</label>
+                        <input type="number" id="semester" min="1" max="8" placeholder="e.g. 3" required>
+                    </div>
 
-                <label for="year">Year:</label>
-                <input type="number" id="year" required>
+                    <div class="form-group">
+                        <label for="subject">Subject Name</label>
+                        <input type="text" id="subject" placeholder="e.g. Database Management" required>
+                    </div>
 
-                <label for="file">Upload File:</label>
-                <input type="file" id="file" accept=".pdf" required>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="">-- Select --</option>
+                            <option value="Internal">Internal</option>
+                            <option value="External">External</option>
+                            <option value="Practical">Practical</option>
+                        </select>
+                    </div>
 
-                <button type="submit">Upload</button>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="number" id="year" min="2000" max="2100" placeholder="e.g. 2023" required>
+                    </div>
+                </div>
+
+                <div class="form-group file-group">
+                    <label for="file"><i class="fa-solid fa-file-pdf"></i> Upload PDF</label>
+                    <input type="file" id="file" accept=".pdf" required>
+                </div>
+
+                <button type="submit" class="btn-upload">
+                    <i class="fa-solid fa-upload"></i> Upload &amp; Auto-Save
+                </button>
             </form>
+        </section>
+
+        <!-- Uploaded Papers List -->
+        <section class="papers-section">
+            <h2><i class="fa-solid fa-folder-open"></i> All Uploaded Papers</h2>
+            <ul id="papers-list">
+                <li class="loading">Connecting to server…</li>
+            </ul>
         </section>
     </main>
 
     <footer>
         <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/share/1TsRivwg8m/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/akshay_basak_?igsh=OHRtZDM5ajVjZXY3"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/akshay-basak-31384a388"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/code-with-akki010"><i class="fab fa-github"></i></a>
         </div>
         <p><i class="fa-solid fa-folder-open"></i> Manage Your CampusBytes Database</p>
-        <p>© 2025 <span class="brand">CampusBytes</span></p>
+        <p>© 2026 <span class="brand">CampusBytes</span></p>
     </footer>
-    <script src="admin.js"></script>
 
+    <script src="admin.js"></script>
 </body>
 
 </html>
