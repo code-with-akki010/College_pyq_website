@@ -152,30 +152,58 @@ body {
 /*  Filters & Papers */
 main {
   padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .filters {
   background: #fff;
-  padding: 15px;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
 }
 
-.filters label,
-.filters select,
-.filters button {
-  display: block;
-  margin: 10px 0;
+.filters .filter-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 180px;
+}
+
+.filters label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.filters select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 14px;
 }
 
 button {
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
   background: #3498db;
   color: white;
   cursor: pointer;
   border-radius: 6px;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+.filters button {
+  height: 40px;
+  flex: 1;
+  min-width: 150px;
 }
 
 button:hover {
@@ -267,3 +295,50 @@ footer .brand {
   color: #3498db;
   font-weight: bold;
 }
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hero {
+    height: auto;
+    padding: 60px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero .description {
+    font-size: 1rem;
+  }
+  
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filters .filter-group, .filters button {
+    width: 100%;
+  }
+  
+  #papers-list li {
+    font-size: 14px;
+    padding: 10px;
+    word-break: break-word;
+  }
+}
+
