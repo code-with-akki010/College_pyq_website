@@ -1,32 +1,23 @@
-/* General Reset */
+/* ─── Reset & Base ────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f9f9f9;
+    background: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-
-/* Navbar (same style as main site) */
+/* ─── Navbar ─────────────────────────────────────────────────────────────── */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #2c3e50;
-    padding: 15px 20px;
-}
-
-header h1 {
-  margin: 0;
-  padding: 10px;
-  font-size: 30px;
-  font-weight: bold;
-  color: black;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+    padding: 15px 30px;
 }
 
 .logo {
@@ -46,8 +37,9 @@ header h1 {
 .nav-links a {
     color: white;
     text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 5px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background 0.2s;
 }
 
 .nav-links a:hover,
@@ -55,119 +47,290 @@ header h1 {
     background: #3498db;
 }
 
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #1abc9c, #16a085);
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+header {
+    background: linear-gradient(135deg, #1abc9c, #2980b9);
     color: white;
+    text-align: center;
+    padding: 30px 20px 20px;
 }
 
-/* Admin Form */
-main {
-    padding: 30px;
+header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-form {
+.server-note {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.server-note code {
+    background: rgba(0,0,0,0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* ─── Main layout ────────────────────────────────────────────────────────── */
+main {
+    flex: 1;
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ─── Upload Section ─────────────────────────────────────────────────────── */
+.upload-section,
+.papers-section {
     background: #fff;
-    padding: 25px;
+    border-radius: 12px;
+    padding: 28px 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.upload-section h2,
+.papers-section h2 {
+    margin: 0 0 20px;
+    font-size: 20px;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ─── Status message ─────────────────────────────────────────────────────── */
+.status-msg {
+    padding: 10px 16px;
     border-radius: 8px;
-    width: 400px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    margin-bottom: 16px;
+    min-height: 20px;
+    transition: all 0.3s;
 }
 
-form label {
-    display: block;
-    margin-top: 12px;
-    font-weight: bold;
+.status-msg.success {
+    background: #d1fae5;
+    color: #065f46;
+    border-left: 4px solid #10b981;
 }
 
-form input,
-form select {
+.status-msg.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border-left: 4px solid #ef4444;
+}
+
+/* ─── Form grid ──────────────────────────────────────────────────────────── */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #374151;
+}
+
+.form-group input,
+.form-group select {
+    padding: 9px 12px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 14px;
+    transition: border-color 0.2s;
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
-button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 12px;
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #1abc9c;
+    box-shadow: 0 0 0 3px rgba(26,188,156,0.15);
+}
+
+.file-group {
+    margin-bottom: 4px;
+}
+
+.file-group input[type="file"] {
+    padding: 6px 10px;
+}
+
+/* ─── Upload button ──────────────────────────────────────────────────────── */
+.btn-upload {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 12px 28px;
     border: none;
-    background: #1abc9c;
+    background: linear-gradient(135deg, #1abc9c, #16a085);
     color: white;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: transform 0.15s, box-shadow 0.2s;
+    width: auto;
 }
 
-button:hover {
-    background: #16a085;
+.btn-upload:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(26,188,156,0.4);
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    background: #2c3e50;
-    color: white;
-    padding: 15px;
-    margin-top: 40px;
+/* ─── Papers list ────────────────────────────────────────────────────────── */
+#papers-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-footer a {
-    color: #1abc9c;
+#papers-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    gap: 12px;
+}
+
+#papers-list li.loading,
+#papers-list li.empty,
+#papers-list li.error {
+    justify-content: center;
+    color: #6b7280;
+    font-style: italic;
+}
+
+#papers-list li.error { color: #ef4444; }
+
+.paper-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2c3e50;
+}
+
+.paper-info i { color: #e74c3c; font-size: 18px; }
+
+.paper-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.btn-view, .btn-delete {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+    border: none;
     text-decoration: none;
 }
 
-/* Footer Styling */
+.btn-view {
+    background: #3498db;
+    color: white;
+}
+
+.btn-view:hover { background: #2980b9; }
+
+.btn-delete {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-delete:hover { background: #dc2626; }
+
+/* ─── Footer ─────────────────────────────────────────────────────────────── */
 footer {
-  background: #1a252f;
-  color: #dcdcdc;
-  padding: 25px 15px;
-  text-align: center;
-  margin-top: auto;
-}
-
-.footer-container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.footer-links {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: #dcdcdc;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.footer-links a:hover {
-  color: #3498db;
+    background: #1a252f;
+    color: #dcdcdc;
+    padding: 25px 15px;
+    text-align: center;
+    margin-top: auto;
 }
 
 .footer-social {
-  margin-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 .footer-social a {
-  color: #dcdcdc;
-  margin: 0 8px;
-  font-size: 20px;
-  transition: color 0.3s ease;
+    color: #dcdcdc;
+    margin: 0 8px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+    text-decoration: none;
 }
 
-.footer-social a:hover {
-  color: #3498db;
-}
+.footer-social a:hover { color: #3498db; }
 
 footer .brand {
-  color: #3498db;
-  font-weight: bold;
+    color: #3498db;
+    font-weight: bold;
 }
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    header h1 {
+        font-size: 24px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .form-grid { 
+        grid-template-columns: 1fr; 
+    }
+    main { 
+        padding: 16px; 
+        gap: 20px;
+    }
+    .upload-section, .papers-section {
+        padding: 20px 15px;
+    }
+    #papers-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .paper-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
