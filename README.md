@@ -130,9 +130,18 @@ Students can:
 
 ## 🌐 Live Demo & Hosting
 
-> ⚠️ **Important Note on Hosting:** Because this project now includes a **Node.js backend** for real file uploads, hosting it purely on GitHub Pages will only display the static frontend. The search and upload features require the backend server to be running.
+This project uses a split hosting architecture to work on the live internet:
 
-To host the fully functional site (frontend + backend), you will need a hosting provider that supports Node.js (such as **Render**, **Railway**, **Heroku**, or a VPS).
+- **Frontend (Static UI):** Hosted on [GitHub Pages](https://code-with-akki010.github.io/College_pyq_website/)
+- **Backend (Node.js API):** Hosted on [Render](https://college-pyq-website-1.onrender.com)
+
+<p align="left">
+  <a href="https://code-with-akki010.github.io/College_pyq_website/" target="_blank">
+    🔗 <strong>Visit the Live Student Portal →</strong>  
+  </a>
+</p>
+
+> ⚠️ **Important Note on Free Hosting:** Because the backend is hosted on a free Render instance, the server goes to "sleep" after 15 minutes of inactivity. When it wakes up, it wipes its temporary storage. This means any **new PDFs** uploaded via the live admin panel will be lost after a restart. To permanently save PDFs, they must be pushed directly to the `papers/` folder in the GitHub repository!
 
 ---
 
@@ -143,3 +152,4 @@ Developed by: **code-with-akki010**
 💬 Feel free to connect for collaborations or suggestions!
 
 ---
+
