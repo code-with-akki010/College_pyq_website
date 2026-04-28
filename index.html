@@ -9,16 +9,25 @@
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="theme.css">
 </head>
 
 <body>
   <!--  Navbar -->
   <nav class="navbar">
     <div class="logo"><i class="fa-solid fa-graduation-cap"></i> CampusBytes</div>
-    <ul class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="primary-nav">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="login.html">Login</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li>
+        <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </li>
     </ul>
   </nav>
 
@@ -34,6 +43,14 @@
   </header>
 
   <main>
+    <section class="quick-search">
+      <label for="paper-search">Search papers</label>
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="paper-search" placeholder="Search by subject, semester, category, or year">
+      </div>
+    </section>
+
     <section class="filters">
       <div class="filter-group">
         <label for="semester">Select Semester:</label>
@@ -55,11 +72,45 @@
         <select id="year"></select>
       </div>
 
-      <button onclick="loadPapers()">Search Papers</button>
+      <div class="filter-actions">
+        <button id="apply-filters" type="button">
+          <i class="fa-solid fa-filter"></i> Apply Filters
+        </button>
+        <button id="reset-filters" class="btn-reset" type="button">
+          <i class="fa-solid fa-rotate-left"></i> Reset
+        </button>
+      </div>
     </section>
 
-    <section id="papers-list">
-      <h2>Available Papers</h2>
+    <section id="bookmarks-list">
+      <div class="section-heading">
+        <h2>Saved Papers</h2>
+        <button id="clear-bookmarks" class="text-button" type="button">
+          <i class="fa-solid fa-trash-can"></i> Clear Saved
+        </button>
+      </div>
+      <ul id="bookmarked-papers"></ul>
+    </section>
+
+    <section id="recent-list">
+      <div class="section-heading">
+        <h2>Recent Papers</h2>
+        <button id="show-all-recent" class="text-button" type="button">
+          <i class="fa-solid fa-list"></i> Show All
+        </button>
+      </div>
+      <ul id="recent-papers"></ul>
+    </section>
+
+    <section id="papers-list" class="available-section">
+      <div class="section-heading">
+        <h2>Available Papers</h2>
+        <div class="view-toggle" aria-label="Paper grouping">
+          <button class="active" type="button" data-view-mode="list">List</button>
+          <button type="button" data-view-mode="subject">Subject</button>
+          <button type="button" data-view-mode="semester">Semester</button>
+        </div>
+      </div>
       <ul id="papers"></ul>
     </section>
 
@@ -86,9 +137,36 @@
     </div>
   </footer>
 
+  <div class="pdf-modal" id="pdf-modal" aria-hidden="true">
+    <div class="pdf-modal-backdrop" data-close-preview></div>
+    <section class="pdf-dialog" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
+      <div class="pdf-dialog-header">
+        <div>
+          <h2 id="pdf-title">Paper Preview</h2>
+          <p id="pdf-meta"></p>
+        </div>
+        <button class="pdf-close" type="button" data-close-preview aria-label="Close preview">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
 
+      <iframe id="pdf-frame" title="Question paper preview"></iframe>
 
+      <div class="pdf-actions">
+        <a id="pdf-open" class="btn-secondary" target="_blank" rel="noopener">
+          <i class="fa-solid fa-up-right-from-square"></i> View Full
+        </a>
+        <a id="pdf-download" class="btn-secondary" download>
+          <i class="fa-solid fa-download"></i> Download
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <script src="theme.js"></script>
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 
 </html>
+
