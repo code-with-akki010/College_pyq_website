@@ -1,0 +1,74 @@
+# 🎓 CampusBytes - Complete Technical Documentation
+
+This document breaks down the entire project's functionality, architecture, logic, and code vocabulary in deep detail. It is designed to help anyone completely understand how the frontend and backend communicate, and why the code is written the way it is.
+
+---
+
+## 1. 🏗️ Architecture & Workflow Overview
+
+This project uses a split architecture:
+- **Frontend (Client-Side):** The HTML, CSS, and JavaScript that the user interacts with in their browser.
+- **Backend (Server-Side):** A Node.js application running on a server that handles file saving, deleting, and data management.
+
+### The Workflow:
+1. **Viewing Papers:** A student opens the website. The frontend script (`script.js`) automatically sends a `fetch()` request over the internet to the backend API (`/api/papers`). The backend replies with a JSON list of all available PDFs.
+2. **Uploading Papers:** The admin logs in and submits a PDF file. The frontend (`admin.js`) packages the file and its details (Semester, Subject, etc.) and sends it to the backend (`/api/upload`).
+3. **Auto-Indexing:** The backend saves the PDF into the `papers/` folder. It then scans every single file in that folder, extracts their details from the filenames, and automatically generates the `papers.json` file.
+
+---
+
+## 2. 🧠 Backend Deep Dive (`server.js`)
+
+The `server.js` file is the brain of your application. Let's break down the technical words and functions:
+
+### Vocabulary / Dependencies
+- **`express`**: A framework for Node.js. It allows you to easily create a web server and define "routes" or "API Endpoints" (like `/api/upload`).
+- **`multer`**: A piece of "middleware" (code that runs in the middle of a request). When a user sends a file from a web form, it arrives in a format called `multipart/form-data`. Multer is responsible for catching that file and saving it to the hard drive.
+- **`cors`**: Stands for "Cross-Origin Resource Sharing". Web browsers normally block requests made from one website (e.g., GitHub Pages) to a different website (e.g., Render) for security. `cors` tells the browser, "It's okay, allow this connection."
+- **`fs`**: Stands for File System. It is built into Node.js and allows the code to read, write, and delete files on the computer's hard drive.
+
+### Core Functions & Logic
+
+#### 1. The File Naming System (Inside `multer.diskStorage`)
+**Purpose:** When a file is uploaded, we must save it with a specific name so we can identify it later.
+**Logic:** 
+We grab the `semester`, `subject`, `category`, and `year` from the user's form. 
+We use `.replace(/\s+/g, "_")` to replace spaces with underscores.
+We force the filename to look exactly like this: `SEM3_DBMS_External_2023.pdf`. 
+
+#### 2. `rebuildPapersJson()` (The Auto-Indexer)
+**Purpose:** This is the most brilliant part of the project. It removes the need for a heavy database (like MySQL or MongoDB).
+**Logic:**
+- It uses `fs.readdirSync()` to look inside the `papers/` folder and grab all the `.pdf` filenames.
+- It loops through them and uses `.split("_")` to break the filename into pieces. 
+- Because we forced the naming structure earlier, the code knows that the first piece is the Semester, the last piece is the Year, and the pieces in the middle are the Subject.
+- It turns this information into a JavaScript Object, converts it to text (`JSON.stringify`), and saves it as `papers.json`.
+
+#### 3. API Endpoints
+- **`app.get("/api/papers")`**: When called, it runs `rebuildPapersJson()` to ensure it has the absolute latest list of files, then sends that list to the frontend.
+- **`app.post("/api/upload")`**: The route that accepts the PDF. It uses `upload.single("file")` (the multer middleware) to intercept the file and save it.
+- **`app.delete("/api/delete")`**: Receives a filename, checks if it exists in the `papers/` folder, and uses `fs.unlinkSync()` to permanently delete it from the hard drive.
+
+---
+
+## 3. 🖥️ Frontend Deep Dive (`script.js` & `admin.js`)
+
+### Student Portal (`script.js`)
+
+- **`fetchData()`**: This is an `async` function. `async/await` means the code will pause and wait for the server to reply over the internet before continuing. It fetches the data from the backend and saves it in a global variable called `papersData`.
+- **Cascading Dropdowns (`populateSemesters`, `populateSubjects`, etc.)**:
+  **Logic:** Instead of typing out `<option>` tags in HTML, JavaScript generates them dynamically based on what actually exists in `papersData`. 
+  - `[...new Set(...)]`: A `Set` is a math concept that only allows unique values. By passing our semesters into a Set, we automatically remove all duplicates!
+  - When you select "Semester 1", an Event Listener triggers `populateSubjects()`. This function filters the data to *only* show subjects that belong to Semester 1. This guarantees the user can never select an invalid combination!
+
+### Admin Dashboard (`admin.js`)
+
+- **`FormData` Object**: When you click the upload button, the code says `new FormData()`. You cannot send a physical file over a standard JSON API request. `FormData` acts like a digital envelope that perfectly packages text fields (like Semester) alongside binary files (like PDFs) so the server (`multer`) can read them.
+- **`deletePaper(filename)`**: When you click delete, it first triggers a browser popup `confirm()`. If you click OK, it sends a `DELETE` request. It sends the `filename` in the "body" of the request as JSON so the server knows exactly which file to destroy.
+
+---
+
+## 4. 🏁 Conclusion & Design Pattern
+
+The architecture used here is known as a **"File-System as a Database"** pattern. 
+By strictly controlling how files are named when they are uploaded, the application can extract all the metadata it needs directly from the filenames. This avoids the complexity of setting up, hosting, and querying an external database, resulting in an application that is incredibly fast, lightweight, and perfectly suited for an educational archive.
