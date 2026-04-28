@@ -9,16 +9,25 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="theme.css">
 </head>
 
 <body>
     <!--  Navbar -->
     <nav class="navbar">
         <div class="logo"><i class="fa-solid fa-graduation-cap"></i> CampusBytes</div>
-        <ul class="nav-links">
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="primary-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="login.html" class="active">Login</a></li>
             <li><a href="index.html#contact">Contact</a></li>
+            <li>
+                <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </li>
         </ul>
     </nav>
     <header>
@@ -47,6 +56,7 @@
         <p><i class="fa-solid fa-lock"></i> Secure Access Only</p>
         <p>© 2026 <span class="brand">CampusBytes</span></p>
     </footer>
+    <script src="theme.js"></script>
     <script src="login.js"></script>
 </body>
 
