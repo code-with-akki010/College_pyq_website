@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const PAPERS_DIR = path.join(__dirname, "papers");
 const JSON_FILE = path.join(__dirname, "papers.json");
 
-// ── ensure papers/ folder exists ──────────────────────────────────────────────
+// â”€â”€ ensure papers/ folder exists â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 if (!fs.existsSync(PAPERS_DIR)) fs.mkdirSync(PAPERS_DIR);
 
 app.use(cors());
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.static(__dirname));          // serve HTML/CSS/JS files
 app.use("/papers", express.static(PAPERS_DIR)); // serve uploaded PDFs
 
-// ── Multer: store file with structured name ────────────────────────────────────
+// â”€â”€ Multer: store file with structured name â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, PAPERS_DIR),
   filename: (req, file, cb) => {
@@ -40,7 +40,7 @@ const upload = multer({
   }
 });
 
-// ── Scan papers/ folder and rebuild papers.json ────────────────────────────────
+// â”€â”€ Scan papers/ folder and rebuild papers.json â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function rebuildPapersJson() {
   const files = fs.readdirSync(PAPERS_DIR).filter(f => f.endsWith(".pdf"));
 
@@ -69,11 +69,11 @@ function rebuildPapersJson() {
   }).filter(Boolean);
 
   fs.writeFileSync(JSON_FILE, JSON.stringify(papers, null, 2), "utf8");
-  console.log(`✅  papers.json rebuilt — ${papers.length} paper(s) indexed.`);
+  console.log(`âœ…  papers.json rebuilt â€” ${papers.length} paper(s) indexed.`);
   return papers;
 }
 
-// ── API: GET /api/papers ───────────────────────────────────────────────────────
+// â”€â”€ API: GET /api/papers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.get("/api/papers", (req, res) => {
   try {
     const papers = rebuildPapersJson();   // always fresh scan
@@ -83,7 +83,7 @@ app.get("/api/papers", (req, res) => {
   }
 });
 
-// ── API: POST /api/upload ──────────────────────────────────────────────────────
+// â”€â”€ API: POST /api/upload â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.post("/api/upload", upload.single("file"), (req, res) => {
   try {
     const { semester, subject, category, year } = req.body;
@@ -96,7 +96,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 
     res.json({
       success: true,
-      message: `✅ "${req.file.filename}" uploaded and indexed successfully!`,
+      message: `âœ… "${req.file.filename}" uploaded and indexed successfully!`,
       total: papers.length
     });
   } catch (err) {
@@ -104,7 +104,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   }
 });
 
-// ── API: DELETE /api/delete ────────────────────────────────────────────────────
+// â”€â”€ API: DELETE /api/delete â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.delete("/api/delete", (req, res) => {
   try {
     const { filename } = req.body;
@@ -121,17 +121,17 @@ app.delete("/api/delete", (req, res) => {
     fs.unlinkSync(filePath);
     const papers = rebuildPapersJson();
 
-    res.json({ success: true, message: `🗑️ Deleted "${safeFilename}"`, total: papers.length });
+    res.json({ success: true, message: `ðŸ—‘ï¸ Deleted "${safeFilename}"`, total: papers.length });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-// ── Start server ───────────────────────────────────────────────────────────────
+// â”€â”€ Start server â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 app.listen(PORT, () => {
   // Initial scan on startup
   rebuildPapersJson();
-  console.log(`\n🚀  CampusBytes server running at http://localhost:${PORT}`);
-  console.log(`📂  Papers folder : ${PAPERS_DIR}`);
-  console.log(`📄  papers.json   : ${JSON_FILE}\n`);
+  console.log(`\nðŸš€  CampusBytes server running at http://localhost:${PORT}`);
+  console.log(`ðŸ“‚  Papers folder : ${PAPERS_DIR}`);
+  console.log(`ðŸ“„  papers.json   : ${JSON_FILE}\n`);
 });
