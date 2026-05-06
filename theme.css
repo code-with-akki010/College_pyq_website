@@ -14,6 +14,13 @@
   --primary-hover: #2980b9;
   --accent: #1abc9c;
   --danger: #ef4444;
+  --toast-bg: #111827;
+  --toast-text: #f9fafb;
+  --toast-shadow: rgba(15, 23, 42, 0.28);
+  --toast-success: #16a34a;
+  --toast-error: #dc2626;
+  --toast-warning: #d97706;
+  --toast-info: #2563eb;
 }
 
 body.dark-theme {
@@ -32,6 +39,13 @@ body.dark-theme {
   --primary-hover: #0ea5e9;
   --accent: #2dd4bf;
   --danger: #f87171;
+  --toast-bg: #0b1220;
+  --toast-text: #e5e7eb;
+  --toast-shadow: rgba(0, 0, 0, 0.45);
+  --toast-success: #22c55e;
+  --toast-error: #f87171;
+  --toast-warning: #f59e0b;
+  --toast-info: #38bdf8;
 }
 
 body {
@@ -91,6 +105,62 @@ body.dark-theme .hero {
   filter: brightness(0.9);
 }
 
+.toast-container {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: min(360px, calc(100vw - 24px));
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--toast-bg);
+  color: var(--toast-text);
+  border-left: 4px solid var(--toast-info);
+  box-shadow: 0 12px 24px var(--toast-shadow);
+  font-size: 14px;
+  line-height: 1.35;
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast i {
+  font-size: 15px;
+}
+
+.toast-success {
+  border-left-color: var(--toast-success);
+}
+
+.toast-error {
+  border-left-color: var(--toast-error);
+}
+
+.toast-warning {
+  border-left-color: var(--toast-warning);
+}
+
+.toast-info {
+  border-left-color: var(--toast-info);
+}
+
 @media (max-width: 768px) {
   .navbar {
     position: relative;
@@ -127,7 +197,8 @@ body.dark-theme .hero {
   }
 
   .nav-links a,
-  .nav-links .theme-toggle {
+  .nav-links .theme-toggle,
+  .nav-links .nav-logout {
     width: 100%;
   }
 
@@ -136,15 +207,21 @@ body.dark-theme .hero {
     text-align: center;
   }
 
-  .nav-links .theme-toggle {
+  .nav-links .theme-toggle,
+  .nav-links .nav-logout {
     border-radius: 6px;
+  }
+
+  .nav-links .nav-logout {
+    justify-content: center;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   body,
   .theme-toggle,
-  .nav-toggle {
+  .nav-toggle,
+  .toast {
     transition: none;
   }
 }
