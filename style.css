@@ -357,7 +357,7 @@ button:hover {
 
 .study-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -410,6 +410,83 @@ button:hover {
 #xp-streak {
   margin: 8px 0 0;
   font-size: 14px;
+}
+
+.section-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.live-sync-status,
+.section-signal {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid var(--border, #ccc);
+  border-radius: 999px;
+  background: var(--surface-soft, #f8fafc);
+  color: var(--muted, #6b7280);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.live-sync-status.connected {
+  color: #0e7f67;
+  border-color: rgba(26, 188, 156, 0.45);
+  background: rgba(26, 188, 156, 0.12);
+}
+
+.live-sync-status.syncing {
+  color: var(--primary, #3498db);
+}
+
+.live-sync-status.offline {
+  color: var(--danger, #ef4444);
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.live-sync-status i {
+  font-size: 10px;
+}
+
+.live-sync-status.connected i {
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+.live-card p {
+  margin: 0 0 8px;
+  color: var(--text, #1f2937);
+  font-weight: 700;
+}
+
+.live-card small {
+  color: var(--muted, #6b7280);
+}
+
+.paper-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.paper-meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: rgba(52, 152, 219, 0.1);
+  color: var(--primary, #3498db);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 #semester-progress {
@@ -712,6 +789,19 @@ button:hover {
   }
 }
 
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
 .modal-open {
   overflow: hidden;
 }
@@ -950,6 +1040,18 @@ footer .brand {
 
   .study-grid {
     grid-template-columns: 1fr;
+  }
+
+  .section-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .live-sync-status,
+  .section-actions .text-button,
+  .section-signal {
+    width: 100%;
+    justify-content: center;
   }
 
   .sprint-actions {
