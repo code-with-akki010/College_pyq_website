@@ -1,5 +1,5 @@
 const API = (window.CampusBytesConfig?.API_BASE_URL || "").replace(/\/+$/, "");
-const MAX_FILE_SIZE_MB = 10;
+const MAX_FILE_SIZE_MB = 50;
 
 function notify(type, message, duration) {
   window.CampusBytesUI?.showToast(message, { type, duration });
@@ -302,7 +302,7 @@ async function loadUploadedPapers() {
           <a href="${paperUrl}" target="_blank" rel="noopener" class="btn-view">
             <i class="fa-solid fa-eye"></i> View
           </a>
-          <button class="btn-delete" data-delete-paper="${Number(p.id)}" data-filename="${filename}">
+          <button class="btn-delete" data-delete-paper="${escapeHtml(p.id)}" data-filename="${filename}">
             <i class="fa-solid fa-trash"></i> Delete
           </button>
         </div>`;
@@ -322,7 +322,7 @@ function setupAdminListActions() {
     const button = event.target.closest("[data-delete-paper]");
     if (!button) return;
 
-    deletePaper(Number(button.dataset.deletePaper), button.dataset.filename || "paper.pdf");
+    deletePaper(button.dataset.deletePaper, button.dataset.filename || "paper.pdf");
   });
 }
 
@@ -330,7 +330,7 @@ async function deletePaper(id, filename) {
   if (!confirm(`Delete "${filename}"? This cannot be undone.`)) return;
 
   try {
-    const res = await fetch(`${API}/api/papers/${id}`, { method: "DELETE" });
+    const res = await fetch(`${API}/api/papers/${encodeURIComponent(id)}`, { method: "DELETE" });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || "Delete failed.");
 
