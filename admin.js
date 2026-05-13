@@ -1,8 +1,53 @@
-const API = window.CampusBytesConfig?.API_BASE_URL || "";
+const API = (window.CampusBytesConfig?.API_BASE_URL || "").replace(/\/+$/, "");
 const MAX_FILE_SIZE_MB = 10;
 
+function notify(type, message, duration) {
+  window.CampusBytesUI?.showToast(message, { type, duration });
+}
+
+function getPaperUrl(file) {
+  if (/^https?:\/\//i.test(file)) return file;
+  const cleanFile = String(file || "").replace(/^\/+/, "");
+  return API ? `${API}/${cleanFile}` : `/${cleanFile}`;
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  if (!API) {
+    setStatus("error", "Admin disabled", "No backend API is configured. Set API_BASE_URL in config.js to enable uploads.");
+    document.querySelectorAll("input, select, button").forEach(el => el.disabled = true);
+    return;
+  }
+
+  if (!window.CampusBytesAuth?.requireAuth("login.html")) return;
+
+  const session = window.CampusBytesAuth.getSession();
+  const logoutButton = document.getElementById("admin-logout");
+
+  if (logoutButton) {
+    logoutButton.addEventListener("click", () => {
+      window.CampusBytesAuth.clearSession();
+      notify("info", "Logged out successfully");
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 250);
+    });
+  }
+
+  if (session?.username) {
+    notify("success", `Welcome, ${session.username}`);
+  }
+
   loadUploadedPapers();
+  setupAdminListActions();
 
   const form = document.getElementById("upload-form");
 
@@ -28,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch(`${API}/api/upload`, { method: "POST", body: formData });
       const data = await res.json();
 
-      if (!res.ok) throw new Error(data.error || "Upload failed");
+      if (!res.ok) throw new Error(data.error || "Upload failed.");
 
       setStatus("success", `${data.message} (${data.total} total)`);
       form.reset();
@@ -138,6 +183,10 @@ function setStatus(type, message) {
 
   statusBox.className = `status-msg ${type}`;
   statusBox.innerHTML = `<i class="fa-solid ${icons[type]}"></i> ${message}`;
+
+  if (type === "success" || type === "error") {
+    notify(type, message);
+  }
 }
 
 function renderAdminState(type, title, message) {
@@ -202,9 +251,9 @@ function renderDashboardStats(papers = []) {
   categorySummary.className = "category-summary";
   categorySummary.innerHTML = Object.keys(categoryCounts).length
     ? Object.entries(categoryCounts)
-        .sort(([a], [b]) => a.localeCompare(b))
-        .map(([category, total]) => `<span>${category}: <b>${total}</b></span>`)
-        .join("")
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([category, total]) => `<span>${category}: <b>${total}</b></span>`)
+      .join("")
     : "<span>No categories yet</span>";
   statsGrid.appendChild(categorySummary);
 
@@ -242,16 +291,18 @@ async function loadUploadedPapers() {
     list.innerHTML = "";
     papers.forEach(p => {
       const li = document.createElement("li");
+      const paperUrl = getPaperUrl(p.file);
+      const filename = escapeHtml(p.filename || p.file?.split("/").pop() || "paper.pdf");
       li.innerHTML = `
         <span class="paper-info">
           <i class="fa-solid fa-file-pdf"></i>
-          <b>Sem ${p.semester}</b> - ${p.subject} - ${p.category} - ${p.year}
+          <b>Sem ${escapeHtml(p.semester)}</b> - ${escapeHtml(p.subject)} - ${escapeHtml(p.category)} - ${escapeHtml(p.year)}
         </span>
         <div class="paper-actions">
-          <a href="${API}/${p.file}" target="_blank" class="btn-view">
+          <a href="${paperUrl}" target="_blank" rel="noopener" class="btn-view">
             <i class="fa-solid fa-eye"></i> View
           </a>
-          <button class="btn-delete" onclick="deletePaper('${p.file.replace("papers/", "")}')">
+          <button class="btn-delete" data-delete-paper="${Number(p.id)}" data-filename="${filename}">
             <i class="fa-solid fa-trash"></i> Delete
           </button>
         </div>`;
@@ -263,17 +314,25 @@ async function loadUploadedPapers() {
   }
 }
 
-async function deletePaper(filename) {
+function setupAdminListActions() {
+  const list = document.getElementById("papers-list");
+  if (!list) return;
+
+  list.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-delete-paper]");
+    if (!button) return;
+
+    deletePaper(Number(button.dataset.deletePaper), button.dataset.filename || "paper.pdf");
+  });
+}
+
+async function deletePaper(id, filename) {
   if (!confirm(`Delete "${filename}"? This cannot be undone.`)) return;
 
   try {
-    const res = await fetch(`${API}/api/delete`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ filename })
-    });
+    const res = await fetch(`${API}/api/papers/${id}`, { method: "DELETE" });
     const data = await res.json();
-    if (!res.ok) throw new Error(data.error);
+    if (!res.ok) throw new Error(data.error || "Delete failed.");
 
     setStatus("success", `${data.message} (${data.total} remaining)`);
     loadUploadedPapers();
@@ -281,4 +340,3 @@ async function deletePaper(filename) {
     setStatus("error", err.message);
   }
 }
-
