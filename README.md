@@ -72,4 +72,6 @@ The backend needs Node.js 22.5 or newer because it uses Node's built-in SQLite m
 3. Set `API_BASE_URL` in `config.js` to the backend URL.
 4. Keep `campusbytes.sqlite` on the backend host, not in the GitHub Pages repository.
 
+The `.nojekyll` file keeps GitHub Pages in plain static-file mode, which avoids build failures from trying to process backend JavaScript files.
+
 Render free instances can lose local disk data when redeployed unless persistent disk is configured. For long-term production storage, use a persistent volume or a managed database/storage service.
