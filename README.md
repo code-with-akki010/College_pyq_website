@@ -1,155 +1,75 @@
-# 🎓 CampusBytes: The University Question Paper Vault
+# CampusBytes
 
-> **A smart, centralized platform for managing and accessing previous year university question papers.**
+CampusBytes is a previous-year-question-paper portal with a static frontend and a Node/Express API. GitHub Pages can host the frontend, while the backend stores paper metadata and PDF bytes in a SQLite database.
 
-![HTML5](https://img.shields.io/badge/HTML5-orange?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-blue?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-yellow?logo=javascript&logoColor=black)
-![Node.js](https://img.shields.io/badge/Node.js-green?logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/Express-lightgrey?logo=express&logoColor=black)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+## What Runs Where
 
----
+- GitHub Pages: `index.html`, `admin.html`, CSS, and browser JavaScript.
+- Backend API: upload, list, preview, download, and delete papers.
+- Database: `campusbytes.sqlite`, generated at runtime and ignored by Git.
 
-## 🌟 About The Project
+The frontend reads `config.js` to find the API:
 
-**CampusBytes** is a responsive web application designed to simplify access to **Previous Year Question Papers** for Burdwan university students (Only Computer Science Students).  
-It acts as a **digital archive**, allowing students to easily **filter and retrieve** question papers based on semester, subject, year, and category.
+```js
+window.CampusBytesConfig = {
+  API_BASE_URL: "https://college-pyq-website-1.onrender.com",
+};
+```
 
-This repository includes both a **Student Portal** and a **Password-Protected Admin Dashboard** with a **Node.js/Express backend** to handle real PDF uploads and automatic database management.
+Use `http://localhost:3000` when testing the full stack locally.
 
-> 🎯 **Goal:** Empower students with a fast, organized, and easy-to-use academic resource hub.
+## API
 
----
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/health` | Check API and database status |
+| `GET` | `/api/papers` | Return paper metadata |
+| `GET` | `/api/papers/events` | Live paper-library updates for the frontend |
+| `GET` | `/api/papers/:id/file` | Stream the PDF from the database |
+| `POST` | `/api/upload` | Upload a PDF into the database |
+| `DELETE` | `/api/papers/:id` | Delete one paper |
 
-## 🚀 Key Features
+Uploads use `multipart/form-data` with these fields:
 
-| Feature | Description | File(s) |
-| :--- | :--- | :--- |
-| 🔍 **Dynamic Filtering** | Filter papers by **Semester**, **Subject**, **Category** (Internal/External/Practical), and **Year**. | `index.html`, `script.js` |
-| 🤖 **Automated Data Indexing** | The server auto-scans uploaded PDFs and regenerates `papers.json` automatically. No manual data entry needed! | `server.js` |
-| 🔑 **Admin Authentication** | Secure login for the admin area to prevent unauthorized uploads. | `login.html`, `login.js` |
-| ⬆️ **Real PDF Uploads** | Upload form for new papers that saves files locally and manages the database. | `admin.html`, `admin.js`, `server.js` |
+- `semester`
+- `subject`
+- `category`
+- `year`
+- `file`
 
----
+Only PDF uploads are accepted. The default file limit is 10 MB and can be changed with `MAX_FILE_SIZE_MB`.
 
-## 🛠️ Tech Stack
+The student page listens to `/api/papers/events` with Server-Sent Events. When an admin uploads or deletes a paper, open student pages refresh the paper list, Smart Recommendations, Exam Sprint, and Study Intelligence automatically. Browsers without SSE support fall back to a 30-second API refresh.
 
-- **Frontend:**
-  - 🧱 **HTML5** & 🎨 **CSS3** (Fully responsive, mobile-friendly design)
-  - ⚙️ **Vanilla JavaScript** (Dynamic filtering and UI logic)
-  - 💎 **Font Awesome** (Icons)
-- **Backend:**
-  - 🟢 **Node.js** & **Express** (API and server logic)
-  - 📦 **Multer** (Handling file uploads)
-  - 📘 **JSON** (Auto-generated database)
+## Local Setup
 
----
+```bash
+npm install
+npm start
+```
 
-## ⚙️ Getting Started
+Then open:
 
-Follow these steps to set up the project and run the server locally 👇
+- Student portal: `http://localhost:3000`
+- Admin login: `http://localhost:3000/login.html`
 
-### 🧩 Prerequisites
+On first startup, if the database is empty and an old `papers/` folder exists, the server imports those PDFs into SQLite once. After that, browsing and uploads use the database, not `papers.json` or static PDF paths.
 
-- Any modern web browser (Chrome, Firefox, Edge, Brave)
-- [Node.js](https://nodejs.org/) installed on your computer.
+## Environment
 
-### 🚀 Installation & Running
+| Variable | Default | Description |
+| --- | --- | --- |
+| `PORT` | `3000` | API port |
+| `DB_FILE` | `campusbytes.sqlite` | SQLite database file path |
+| `MAX_FILE_SIZE_MB` | `10` | Upload limit |
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/code-with-akki010/College_pyq_website.git
-   cd College_pyq_website
-   ```
-2. Install the backend dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the server:
-   ```bash
-   npm start
-   ```
-4. Open your browser and go to `http://localhost:3000`
+The backend needs Node.js 22.5 or newer because it uses Node's built-in SQLite module.
 
----
+## Deployment Notes
 
-## 📝 Usage & Navigation
+1. Deploy the frontend files to GitHub Pages.
+2. Deploy the Node backend to a service that supports persistent disk storage.
+3. Set `API_BASE_URL` in `config.js` to the backend URL.
+4. Keep `campusbytes.sqlite` on the backend host, not in the GitHub Pages repository.
 
-### 🎓 Student Portal (`http://localhost:3000`)
-
-Students can:
-
-- Choose **Semester**, **Subject**, **Category**, and **Year**  
-- Click **“Search Papers”** to view filtered results  
-- The data is dynamically loaded from the live API (`/api/papers`).
-
----
-
-### 🔐 Admin Dashboard (`http://localhost:3000/login.html`)
-
-1. Open the **Login Page**  
-2. Use the **Credentials**:
-
-| Field | Value |
-| :--- | :--- |
-| **Username** | `5min_topper` |
-| **Password** | `Luck@100` |
-
-3. After successful login, you’ll be redirected to **`admin.html`**  
-4. Use the **Upload Form** to add new question papers (PDFs). They will be saved to the `papers/` folder and instantly available on the main site.
-
-> ⚠️ **Note:** The login mechanism uses client-side validation for demonstration. For production use, authentication should be moved to the backend.
-
----
-
-## 📂 Project Structure
-
-📁 **College_pyq_website/**  
-│  
-├── ⚙️ **server.js** — Express backend (Uploads & API)
-├── 📦 **package.json** — Node.js dependencies
-│
-├── 🧩 **index.html** — 🎓 Student Interface  
-├── 🔑 **login.html** — Admin Login Page  
-├── 🛠️ **admin.html** — Admin Dashboard  
-│  
-├── 🧠 **login.js** — Handles admin login validation  
-├── 🚀 **admin.js** — Handles paper upload to the server  
-├── ⚡ **script.js** — Controls dynamic filtering and API fetching  
-│  
-├── 🎨 **style.css** — Main site styling  
-├── 🖋️ **login.css** — Admin login styles  
-├── 🧰 **admin.css** — Admin dashboard styles  
-│  
-├── 📁 **papers/** — Directory where uploaded PDFs are stored
-├── 📘 **papers.json** — Auto-generated metadata for all papers
-└── 📄 **README.md** — Project documentation
-
----
-
-## 🌐 Live Demo & Hosting
-
-This project uses a split hosting architecture to work on the live internet:
-
-- **Frontend (Static UI):** Hosted on [GitHub Pages](https://code-with-akki010.github.io/College_pyq_website/)
-- **Backend (Node.js API):** Hosted on [Render](https://college-pyq-website-1.onrender.com)
-
-<p align="left">
-  <a href="https://code-with-akki010.github.io/College_pyq_website/" target="_blank">
-    🔗 <strong>Visit the Live Student Portal →</strong>  
-  </a>
-</p>
-
-> ⚠️ **Important Note on Free Hosting:** Because the backend is hosted on a free Render instance, the server goes to "sleep" after 15 minutes of inactivity. When it wakes up, it wipes its temporary storage. This means any **new PDFs** uploaded via the live admin panel will be lost after a restart. To permanently save PDFs, they must be pushed directly to the `papers/` folder in the GitHub repository!
-
----
-
-## 👨‍💻 Author
-
-Developed by: **code-with-akki010**
-
-💬 Feel free to connect for collaborations or suggestions!
-
----
-
+Render free instances can lose local disk data when redeployed unless persistent disk is configured. For long-term production storage, use a persistent volume or a managed database/storage service.
