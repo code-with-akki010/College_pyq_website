@@ -16,7 +16,8 @@
   <!--  Navbar -->
   <nav class="navbar">
     <div class="logo"><i class="fa-solid fa-graduation-cap"></i> CampusBytes</div>
-    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+      aria-controls="primary-nav">
       <i class="fa-solid fa-bars"></i>
     </button>
     <ul class="nav-links" id="primary-nav">
@@ -45,43 +46,115 @@
   </header>
 
   <main>
-    <section class="quick-search">
-      <label for="paper-search">Search papers</label>
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" id="paper-search" placeholder="Search by subject, semester, category, or year">
+    <section class="discovery-shell" aria-label="Search and filter papers">
+      <section class="quick-search">
+        <label for="paper-search">Search papers</label>
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" id="paper-search" placeholder="Search by subject, semester, category, or year">
+        </div>
+      </section>
+
+      <section class="filters">
+        <div class="filter-group">
+          <label for="semester">Semester</label>
+          <select id="semester"></select>
+        </div>
+
+        <div class="filter-group">
+          <label for="subject">Paper</label>
+          <select id="subject"></select>
+        </div>
+
+        <div class="filter-group">
+          <label for="category">Category</label>
+          <select id="category"></select>
+        </div>
+
+        <div class="filter-group">
+          <label for="year">Year</label>
+          <select id="year"></select>
+        </div>
+
+        <div class="filter-actions">
+          <button id="apply-filters" type="button">
+            <i class="fa-solid fa-filter"></i> Apply
+          </button>
+          <button id="reset-filters" class="btn-reset" type="button">
+            <i class="fa-solid fa-rotate-left"></i> Reset
+          </button>
+        </div>
+      </section>
+
+      <div id="active-filters" class="active-filters" aria-live="polite"></div>
+    </section>
+
+    <section id="study-hub" class="study-hub">
+      <div class="section-heading">
+        <h2>Study Intelligence</h2>
+        <div class="section-actions">
+          <span id="live-sync-status" class="live-sync-status">
+            <i class="fa-solid fa-circle-dot"></i> Connecting
+          </span>
+          <button id="reset-study-progress" class="text-button" type="button">
+            <i class="fa-solid fa-arrow-rotate-left"></i> Reset Progress
+          </button>
+        </div>
+      </div>
+
+      <div class="study-grid">
+        <article class="study-card xp-card">
+          <p class="xp-label">Level <span id="xp-level">1</span></p>
+          <h3><span id="xp-total">0</span> XP</h3>
+          <div class="xp-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="xp-fill"></div>
+          </div>
+          <small id="xp-next">0 / 100 XP to next level</small>
+          <p id="xp-streak">Day streak: 0</p>
+        </article>
+
+        <article class="study-card mission-card">
+          <h3><i class="fa-solid fa-bullseye"></i> Daily Mission</h3>
+          <p id="daily-mission">Open 3 papers and review 2 papers today.</p>
+          <small id="mission-progress">0 / 5 done</small>
+        </article>
+
+        <article class="study-card progress-card">
+          <h3><i class="fa-solid fa-chart-pie"></i> Semester Progress</h3>
+          <ul id="semester-progress"></ul>
+        </article>
+
+        <article class="study-card live-card">
+          <h3><i class="fa-solid fa-tower-broadcast"></i> Live Library</h3>
+          <p id="live-library-summary">Waiting for paper data...</p>
+          <small id="live-library-change">No live update yet</small>
+        </article>
       </div>
     </section>
 
-    <section class="filters">
-      <div class="filter-group">
-        <label for="semester">Select Semester:</label>
-        <select id="semester"></select>
+    <section id="recommendations-list">
+      <div class="section-heading">
+        <h2>Smart Recommendations</h2>
+        <span id="recommendation-signal" class="section-signal">Learning from activity</span>
       </div>
+      <ul id="recommended-papers"></ul>
+    </section>
 
-      <div class="filter-group">
-        <label for="subject">Select Paper:</label>
-        <select id="subject"></select>
+    <section id="exam-sprint" class="exam-sprint">
+      <div class="section-heading">
+        <h2>Exam Sprint</h2>
+        <div class="sprint-actions">
+          <span id="sprint-signal" class="section-signal">Ranking latest papers</span>
+          <select id="sprint-category">
+            <option value="">All Categories</option>
+            <option value="External">External</option>
+            <option value="Internal">Internal</option>
+            <option value="Practical">Practical</option>
+          </select>
+          <button id="run-sprint" type="button"><i class="fa-solid fa-bolt"></i> Run Sprint</button>
+        </div>
       </div>
-
-      <div class="filter-group">
-        <label for="category">Select Category:</label>
-        <select id="category"></select>
-      </div>
-
-      <div class="filter-group">
-        <label for="year">Select Year:</label>
-        <select id="year"></select>
-      </div>
-
-      <div class="filter-actions">
-        <button id="apply-filters" type="button">
-          <i class="fa-solid fa-filter"></i> Apply Filters
-        </button>
-        <button id="reset-filters" class="btn-reset" type="button">
-          <i class="fa-solid fa-rotate-left"></i> Reset
-        </button>
-      </div>
+      <ul id="sprint-papers"></ul>
     </section>
 
     <section id="bookmarks-list">
@@ -134,8 +207,7 @@
         <a href="https://www.linkedin.com/in/akshay-basak-31384a388"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/code-with-akki010"><i class="fab fa-github"></i></a>
       </div>
-      <p>© 2026 <span class="brand">CampusBytes</span> | Built with <i class="fa-solid fa-heart"></i> for Learners | All
-        Rights Reserved</p>
+      <p>&copy; 2026 <span class="brand">CampusBytes</span> | Built with <i class="fa-solid fa-heart"></i> for Learners | All Rights Reserved</p>
     </div>
   </footer>
 
@@ -171,4 +243,3 @@
 </body>
 
 </html>
-
