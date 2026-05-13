@@ -156,21 +156,33 @@ function supabaseHeaders(extra = {}) {
 }
 
 async function supabaseRequest(urlPath, options = {}) {
-  const res = await fetch(`${SUPABASE_URL}${urlPath}`, {
-    ...options,
-    headers: supabaseHeaders(options.headers || {})
-  });
+  try {
+    if (!SUPABASE_URL) {
+      throw new Error("SUPABASE_URL is not set");
+    }
+    if (!SUPABASE_SERVICE_ROLE_KEY) {
+      throw new Error("SUPABASE_SERVICE_ROLE_KEY is not set");
+    }
 
-  const text = await res.text();
-  const contentType = res.headers.get("content-type") || "";
-  const data = contentType.includes("application/json") && text ? JSON.parse(text) : text;
+    const res = await fetch(`${SUPABASE_URL}${urlPath}`, {
+      ...options,
+      headers: supabaseHeaders(options.headers || {})
+    });
 
-  if (!res.ok) {
-    const message = typeof data === "object" ? (data.message || data.error || JSON.stringify(data)) : data;
-    throw new Error(message || `Supabase request failed with ${res.status}`);
+    const text = await res.text();
+    const contentType = res.headers.get("content-type") || "";
+    const data = contentType.includes("application/json") && text ? JSON.parse(text) : text;
+
+    if (!res.ok) {
+      const message = typeof data === "object" ? (data.message || data.error || JSON.stringify(data)) : data;
+      throw new Error(message || `Supabase request failed with ${res.status}`);
+    }
+
+    return data;
+  } catch (err) {
+    console.error("Supabase request error:", err.message, "URL:", `${SUPABASE_URL}${urlPath}`);
+    throw err;
   }
-
-  return data;
 }
 
 async function listSupabasePapers() {
