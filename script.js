@@ -1,8 +1,9 @@
-const API = window.CampusBytesConfig?.API_BASE_URL || "";
+const API = (window.CampusBytesConfig?.API_BASE_URL || "").replace(/\/+$/, "");
 const BOOKMARKS_KEY = "campusbytes-bookmarked-papers";
 const REVIEWED_KEY = "campusbytes-reviewed-papers";
 const XP_KEY = "campusbytes-study-xp";
 const ANALYTICS_KEY = "campusbytes-study-analytics";
+const LIVE_POLL_INTERVAL_MS = 30000;
 
 const XP_EVENTS = {
   open_unique: 8,
@@ -18,9 +19,22 @@ let reviewedFiles = getStoredList(REVIEWED_KEY);
 let currentViewMode = "list";
 let studyXp = getStoredXp();
 let studyAnalytics = getStoredAnalytics();
+let paperLibrarySignature = "";
+let liveRefreshTimer = null;
+let liveEventSource = null;
+let lastLibraryUpdateText = "No live update yet";
 
 function notify(type, message, duration) {
   window.CampusBytesUI?.showToast(message, { type, duration });
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 function getStoredList(key) {
@@ -150,15 +164,192 @@ function awardXp(eventKey, details = {}) {
   }
 }
 
+async function fetchPapersFromApi() {
+  const res = await fetch(`${API}/api/papers`);
+  if (!res.ok) throw new Error("Could not load papers from the configured backend.");
+  return res.json();
+}
+
+async function loadPapers() {
+  return fetchPapersFromApi();
+}
+
+function getPaperUrl(file) {
+  if (/^https?:\/\//i.test(file)) return file;
+  const cleanFile = String(file || "").replace(/^\/+/, "");
+  return API ? `${API}/${cleanFile}` : `/${cleanFile}`;
+}
+
+function getPaperKey(paper) {
+  return String(paper?.id ?? paper?.file ?? paper?.filename ?? "");
+}
+
+function getPaperTime(paper) {
+  const time = Date.parse(paper?.createdAt || "");
+  return Number.isFinite(time) ? time : 0;
+}
+
+function getPaperLibrarySignature(papers) {
+  return papers
+    .map((paper) => [getPaperKey(paper), paper.year, paper.sizeBytes, paper.createdAt].join(":"))
+    .sort()
+    .join("|");
+}
+
+function normalizePaperList(papers) {
+  return [...papers].sort((a, b) =>
+    getPaperTime(b) - getPaperTime(a) ||
+    Number(b.year) - Number(a.year) ||
+    Number(b.semester) - Number(a.semester) ||
+    String(a.subject).localeCompare(String(b.subject))
+  );
+}
+
+function syncStoredPaperLists() {
+  const liveFiles = new Set(papersData.map((paper) => paper.file));
+  const nextBookmarks = bookmarkedFiles.filter((file) => liveFiles.has(file));
+  const nextReviewed = reviewedFiles.filter((file) => liveFiles.has(file));
+
+  if (nextBookmarks.length !== bookmarkedFiles.length) {
+    bookmarkedFiles = nextBookmarks;
+    saveBookmarks();
+  }
+
+  if (nextReviewed.length !== reviewedFiles.length) {
+    reviewedFiles = nextReviewed;
+    saveReviewed();
+  }
+}
+
+function applyPaperLibrary(nextPapers, options = {}) {
+  if (!Array.isArray(nextPapers)) throw new Error("Paper list is invalid.");
+
+  const normalized = normalizePaperList(nextPapers);
+  const nextSignature = getPaperLibrarySignature(normalized);
+  const previousTotal = papersData.length;
+  const changed = nextSignature !== paperLibrarySignature;
+
+  papersData = normalized;
+  paperLibrarySignature = nextSignature;
+  syncStoredPaperLists();
+  renderDynamicDashboard(options.source || "load", previousTotal, changed);
+
+  if (changed && options.announce) {
+    const delta = papersData.length - previousTotal;
+    const message = delta > 0
+      ? `${delta} new paper${delta === 1 ? "" : "s"} added live`
+      : "Paper library updated live";
+    notify("info", message, 1800);
+  }
+
+  return changed;
+}
+
+function renderDynamicDashboard(source = "load", previousTotal = papersData.length, changed = false) {
+  populateFilters();
+  renderBookmarkedPapers();
+  renderRecentPapers();
+  renderRecommendedPapers();
+  renderExamSprintPapers();
+  renderPapers(getCurrentResults(), "Start by searching or choose filters to find papers.");
+  renderActiveFilters();
+  renderStudyHub(source, previousTotal, changed);
+}
+
+function formatClock(date = new Date()) {
+  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+}
+
+function setLiveStatus(state, text) {
+  const status = document.getElementById("live-sync-status");
+  if (!status) return;
+
+  status.className = `live-sync-status ${state}`;
+  status.innerHTML = `<i class="fa-solid fa-circle-dot"></i> ${escapeHtml(text)}`;
+}
+
+function refreshLiveLibraryText(source, previousTotal, changed) {
+  if (source === "initial") {
+    lastLibraryUpdateText = `Loaded from database at ${formatClock()}`;
+  } else if (source === "sse" && changed) {
+    lastLibraryUpdateText = `Live database update at ${formatClock()}`;
+  } else if (source === "poll" && changed) {
+    lastLibraryUpdateText = `Background refresh found changes at ${formatClock()}`;
+  } else if (source === "poll") {
+    lastLibraryUpdateText = `Checked database at ${formatClock()}`;
+  }
+
+  const changeEl = document.getElementById("live-library-change");
+  if (changeEl) changeEl.textContent = lastLibraryUpdateText;
+
+  const delta = papersData.length - previousTotal;
+  if (changed && delta !== 0) {
+    setLiveStatus("syncing", delta > 0 ? `${delta} new upload${delta === 1 ? "" : "s"}` : "Library changed");
+    setTimeout(() => setLiveStatus("connected", `Live at ${formatClock()}`), 1400);
+  }
+}
+
+async function refreshPaperLibraryFromApi(source = "poll") {
+  try {
+    const papers = await loadPapers();
+    applyPaperLibrary(papers, { source, announce: source !== "initial" });
+    setLiveStatus("connected", `Live at ${formatClock()}`);
+  } catch (err) {
+    setLiveStatus("offline", "Sync paused");
+    console.error(err);
+  }
+}
+
+function handlePaperEvent(event) {
+  try {
+    const data = JSON.parse(event.data);
+    if (Array.isArray(data.papers)) {
+      applyPaperLibrary(data.papers, { source: "sse", announce: data.type !== "papers:ready" });
+      setLiveStatus("connected", `Live at ${formatClock()}`);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function startPollingUpdates() {
+  if (liveRefreshTimer || !API) return;
+  liveRefreshTimer = setInterval(() => {
+    if (!document.hidden) refreshPaperLibraryFromApi("poll");
+  }, LIVE_POLL_INTERVAL_MS);
+}
+
+function startRealtimeUpdates() {
+  if (!API) {
+    setLiveStatus("offline", "No backend");
+    return;
+  }
+
+  if ("EventSource" in window) {
+    liveEventSource = new EventSource(`${API}/api/papers/events`);
+    ["papers:ready", "papers:uploaded", "papers:deleted", "papers:update"].forEach((eventName) => {
+      liveEventSource.addEventListener(eventName, handlePaperEvent);
+    });
+    liveEventSource.addEventListener("heartbeat", () => {
+      setLiveStatus("connected", `Live at ${formatClock()}`);
+    });
+    liveEventSource.onopen = () => setLiveStatus("connected", `Live at ${formatClock()}`);
+    liveEventSource.onerror = () => {
+      setLiveStatus("offline", "Reconnecting");
+      startPollingUpdates();
+    };
+  } else {
+    setLiveStatus("syncing", "Auto refresh on");
+    startPollingUpdates();
+  }
+}
+
 async function fetchData() {
   renderListState("loading", "Loading papers", "Fetching the latest question papers for you.");
 
   try {
-    const res = await fetch(`${API}/api/papers`);
-    if (!res.ok) throw new Error("Could not load papers.");
-
-    papersData = await res.json();
-    populateFilters();
+    const papers = await loadPapers();
+    applyPaperLibrary(papers, { source: "initial" });
     setupFilterControls();
     setupQuickSearch();
     setupActiveFilterChips();
@@ -166,16 +357,13 @@ async function fetchData() {
     setupViewControls();
     setupStudyHubControls();
     setupPaperPreview();
-
-    renderBookmarkedPapers();
-    renderRecentPapers();
-    renderRecommendedPapers();
-    renderExamSprintPapers();
-    renderPapers(papersData, "Start by searching or choose filters to find papers.");
-    renderActiveFilters();
-    renderStudyHub();
-  } catch {
-    renderListState("error", "Server unavailable", "Please check your connection or try again in a moment.");
+    startRealtimeUpdates();
+  } catch (err) {
+    const message = API
+      ? "Server unavailable. Check the API URL in config.js or try again shortly."
+      : "No backend API is configured. Set API_BASE_URL in config.js to load papers.";
+    renderListState("error", "Data unavailable", message);
+    console.error(err);
   }
 }
 
@@ -255,7 +443,7 @@ function getCurrentResults() {
   });
 }
 
-function loadPapers() {
+function applyPaperFilters() {
   document.getElementById("paper-search").value = "";
   renderPapers(filterPapers(), "No papers found for these filters.");
   renderActiveFilters();
@@ -283,7 +471,7 @@ function setupFilterControls() {
     });
   });
 
-  document.getElementById("apply-filters").addEventListener("click", loadPapers);
+  document.getElementById("apply-filters").addEventListener("click", applyPaperFilters);
   document.getElementById("reset-filters").addEventListener("click", resetFilters);
 }
 
@@ -510,7 +698,7 @@ function openPaperPreview(index) {
   const paper = papersData[index];
   if (!paper) return;
 
-  const fileUrl = `${API}/${paper.file}`;
+  const fileUrl = getPaperUrl(paper.file);
   const modal = document.getElementById("pdf-modal");
   const frame = document.getElementById("pdf-frame");
   const title = document.getElementById("pdf-title");
@@ -523,7 +711,7 @@ function openPaperPreview(index) {
   frame.src = fileUrl;
   openLink.href = fileUrl;
   downloadLink.href = fileUrl;
-  downloadLink.setAttribute("download", paper.file.split("/").pop());
+  downloadLink.setAttribute("download", paper.filename || paper.file.split("/").pop());
 
   recordPaperView(paper);
   renderStudyHub();
@@ -604,15 +792,19 @@ function renderPaperCard(paper) {
   const index = papersData.indexOf(paper);
   const saved = isBookmarked(paper.file);
   const reviewed = isReviewed(paper.file);
+  const signals = getPaperSignals(paper);
 
   return `
     <li class="paper-card">
       <div class="paper-card-inner">
         <button type="button" class="paper-preview" onclick="openPaperPreview(${index})">
           <i class="fa-solid fa-file-pdf"></i>
-          <span>${paper.subject}</span>
-          <small>Semester ${paper.semester} - ${paper.category} - ${paper.year}</small>
+          <span>${escapeHtml(paper.subject)}</span>
+          <small>Semester ${escapeHtml(paper.semester)} - ${escapeHtml(paper.category)} - ${escapeHtml(paper.year)}</small>
           <b>Preview</b>
+          ${signals.length ? `<div class="paper-meta-chips">${signals.map((signal) => `
+            <span class="paper-meta-chip"><i class="fa-solid ${signal.icon}"></i>${escapeHtml(signal.text)}</span>
+          `).join("")}</div>` : ""}
         </button>
         <div class="paper-utility">
           <button class="review-btn ${reviewed ? "reviewed" : ""}" type="button" onclick="toggleReviewed(${index})" aria-label="${reviewed ? "Unmark reviewed" : "Mark reviewed"}">
@@ -624,6 +816,30 @@ function renderPaperCard(paper) {
         </div>
       </div>
     </li>`;
+}
+
+function getPaperSignals(paper) {
+  const signals = [];
+  const currentYear = Math.max(...papersData.map((item) => Number(item.year)).filter(Number.isFinite));
+  const uploadedAt = getPaperTime(paper);
+
+  if (uploadedAt && Date.now() - uploadedAt < 7 * 24 * 60 * 60 * 1000) {
+    signals.push({ icon: "fa-tower-broadcast", text: "New upload" });
+  }
+
+  if (Number(paper.year) === currentYear) {
+    signals.push({ icon: "fa-calendar-check", text: "Latest year" });
+  }
+
+  if (studyAnalytics.subjectViews[paper.subject]) {
+    signals.push({ icon: "fa-brain", text: "Matches history" });
+  }
+
+  if (!isReviewed(paper.file)) {
+    signals.push({ icon: "fa-circle-half-stroke", text: "Pending review" });
+  }
+
+  return signals.slice(0, 3);
 }
 
 function renderBookmarkedPapers() {
@@ -695,13 +911,16 @@ function getRecommendedPapers(limit = 6) {
   const scores = new Map();
   const last = studyAnalytics.lastViewedSubject;
   const coViewForLast = last ? (studyAnalytics.coViews[last] || {}) : {};
+  const currentYear = Math.max(...papersData.map((paper) => Number(paper.year)).filter(Number.isFinite));
 
   papersData.forEach((paper) => {
     let score = 0;
     score += (coViewForLast[paper.subject] || 0) * 20;
     score += (studyAnalytics.subjectViews[paper.subject] || 0) * 4;
-    score += Number(paper.year) * 0.2;
+    score += Math.max(0, 8 - (currentYear - Number(paper.year))) * 3;
+    score += getPaperTime(paper) ? Math.max(0, 14 - ((Date.now() - getPaperTime(paper)) / 86400000)) : 0;
     if (isReviewed(paper.file)) score -= 10;
+    if (isBookmarked(paper.file)) score += 6;
     scores.set(paper.file, score);
   });
 
@@ -712,10 +931,12 @@ function getRecommendedPapers(limit = 6) {
 
 function renderRecommendedPapers() {
   const list = document.getElementById("recommended-papers");
+  const signal = document.getElementById("recommendation-signal");
   if (!list) return;
 
   const recos = getRecommendedPapers();
   list.innerHTML = "";
+  if (signal) signal.textContent = getRecommendationSignalText(recos);
 
   if (recos.length === 0) {
     list.innerHTML = `
@@ -732,6 +953,14 @@ function renderRecommendedPapers() {
   recos.forEach((paper) => {
     list.innerHTML += renderPaperCard(paper);
   });
+}
+
+function getRecommendationSignalText(recos) {
+  if (papersData.length === 0) return "Waiting for live papers";
+  if (studyAnalytics.lastViewedSubject) return `Tuned after ${studyAnalytics.lastViewedSubject}`;
+  if (bookmarkedFiles.length > 0) return "Using saved papers";
+  if (reviewedFiles.length > 0) return "Avoiding reviewed papers";
+  return `${recos.length} live picks from database`;
 }
 
 function getExamSprintPapers(limit = 6) {
@@ -756,10 +985,12 @@ function getExamSprintPapers(limit = 6) {
 
 function renderExamSprintPapers() {
   const list = document.getElementById("sprint-papers");
+  const signal = document.getElementById("sprint-signal");
   if (!list) return;
 
   const sprint = getExamSprintPapers();
   list.innerHTML = "";
+  if (signal) signal.textContent = getSprintSignalText(sprint);
 
   if (sprint.length === 0) {
     list.innerHTML = `
@@ -778,10 +1009,17 @@ function renderExamSprintPapers() {
   });
 }
 
-function renderStudyHub() {
+function getSprintSignalText(sprint) {
+  const category = document.getElementById("sprint-category")?.value || "all categories";
+  const latest = sprint.length ? Math.max(...sprint.map((paper) => Number(paper.year))) : "--";
+  return `${sprint.length} picks - ${category} - latest ${latest}`;
+}
+
+function renderStudyHub(source = "load", previousTotal = papersData.length, changed = false) {
   renderXpPanel();
   renderSemesterProgress();
   renderMissionPanel();
+  renderLiveLibraryPanel(source, previousTotal, changed);
 }
 
 function renderXpPanel() {
@@ -853,6 +1091,26 @@ function renderMissionPanel() {
     missionEl.textContent = "Open 3 papers and review 2 papers today.";
   }
   progressEl.textContent = `${totalDone} / 5 done`;
+}
+
+function renderLiveLibraryPanel(source, previousTotal, changed) {
+  const summaryEl = document.getElementById("live-library-summary");
+  if (!summaryEl) return;
+
+  const subjects = new Set(papersData.map((paper) => paper.subject)).size;
+  const latestYear = papersData.length ? Math.max(...papersData.map((paper) => Number(paper.year))) : "--";
+  const pending = papersData.filter((paper) => !isReviewed(paper.file)).length;
+
+  summaryEl.textContent = `${papersData.length} papers, ${subjects} subjects, latest ${latestYear}`;
+  refreshLiveLibraryText(source, previousTotal, changed);
+
+  const missionEl = document.getElementById("daily-mission");
+  if (missionEl && pending > 0 && reviewedFiles.length > 0) {
+    const nextPaper = getRecommendedPapers(1)[0];
+    if (nextPaper) {
+      missionEl.textContent = `Next best move: review ${nextPaper.subject} from Semester ${nextPaper.semester}.`;
+    }
+  }
 }
 
 function getWeakestSemester() {
